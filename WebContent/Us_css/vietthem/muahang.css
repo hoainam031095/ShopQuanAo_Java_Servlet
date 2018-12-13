@@ -1,0 +1,68 @@
+* {
+    box-sizing: border-box;
+}
+
+.img-zoom-container {
+    position: relative;
+}
+
+.img-zoom-lens {
+    position: absolute;
+    border: 1px solid #d4d4d4;
+    /*set the size of the lens:*/
+    width: 80px;
+    height: 80px;
+}
+
+.img-zoom-result {
+    border: 1px solid #d4d4d4;
+    width: 549px;
+    height: 327px;
+    position: absolute;
+    top: -12px;
+    left: 104%;
+    z-index: 2;
+}
+.ty-product-block__option .ty-product-variant-image li{
+	display: inline-block;
+}
+/* Thong bao them vao gio hang */
+.popup {
+	top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    display: none;
+    position: fixed;
+    padding: 0px;
+    z-index: 1002;
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
+}
+.popup-inner {
+    width: 40%;
+    height: 291px;
+    top: 100px;
+    left: 29%;
+    position: relative;
+    background: #fff;
+    border-radius: 6px;
+}
+.popup-inner .popup-header h2{
+	font-size: 17px;
+}
+.popup-inner .popup-header{
+	background: #ecf0f1;
+    color: #fff;
+    padding: 30px;
+    padding-bottom: 1px;
+    padding-top: 18px;
+    border-radius: 6px 6px 0px 0px;
+    text-transform: uppercase;
+}
+.popup-inner .popup-content{
+	padding-top: 15px;
+}
+.popup-body{
+    overflow: hidden;
+}

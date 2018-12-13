@@ -1,0 +1,135 @@
+#tablePaging ul {
+	
+}
+
+#tablePaging li {
+	display: inline-block;
+	padding: 10px 18px;
+	border-bottom: 1px dashed #f5d9ea;
+	border-top: 1px dashed #f5d9ea;
+}
+
+#tablePaging li:first-child {
+	border-bottom: 1px solid #cd3591;
+	border-left: 1px solid #cd3591;
+	border-top: 1px solid #cd3591;
+}
+
+#tablePaging li:last-child {
+	border-bottom: 1px solid #cd3591;
+	border-right: 1px solid #cd3591;
+	border-top: 1px solid #cd3591;
+}
+
+#tablePaging li.active {
+	background-color: #cd3591;
+}
+
+#tablePaging li.active a {
+	color: #fff;
+}
+/* THANH BEN */
+.fix-box-filter {
+	position: fixed;
+	right: 5.5%;
+	width: 20.7%;
+	top: 128px;
+}
+
+/* Thanh lọc */
+/* Lọc theo tuổi */
+#content_29_46 table {
+	width: 100%;
+}
+
+#content_29_46 table td {
+	width: 50%;
+}
+
+#content_29_46 input {
+	margin: 6px 5px 6px 0px;
+}
+
+/* Lọc theo giá  */
+input[type='range'] {
+	width: 210px;
+	height: 30px;
+	overflow: hidden;
+	cursor: pointer;
+	outline: none;
+}
+
+input[type='range'], input[type='range']::-webkit-slider-runnable-track,
+	input[type='range']::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	background: none;
+}
+
+input[type='range']::-webkit-slider-runnable-track {
+	width: 200px;
+	height: 2px;
+	background: #003D7C;
+}
+
+input[type='range']:nth-child(2)::-webkit-slider-runnable-track {
+	background: none;
+}
+
+input[type='range']::-webkit-slider-thumb {
+	position: relative;
+	height: 23px;
+	width: 23px;
+	margin-top: -11px;
+	background: green;
+	border: 2px solid red;
+	border-radius: 50%;
+	z-index: 1;
+}
+
+input[type='range']:nth-child(1)::-webkit-slider-thumb {
+	z-index: 2;
+}
+
+.rangeslider {
+	position: relative;
+	height: 60px;
+	width: 210px;
+	display: inline-block;
+	margin-top: -5px;
+	margin-left: 20px;
+}
+
+.rangeslider input {
+	position: absolute;
+}
+
+/* .rangeslider {
+    position: absolute;
+} */
+.rangeslider span {
+	position: absolute;
+	margin-top: 42px;
+	left: 56px;
+}
+
+.rangeslider .light {
+	position: absolute;
+	margin-top: 40px;
+	left: 0px;
+	width: 43px;
+	text-align: center;
+	border: 1px solid #cd3591;
+}
+
+.rangeslider .right {
+	position: relative;
+	float: right;
+	margin-right: 17px;
+	left: 10px;
+}
+
+.rangeslider .right-span {
+	position: relative;
+	float: right;
+	margin-right: -210px;
+}

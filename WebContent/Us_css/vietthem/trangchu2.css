@@ -1,0 +1,77 @@
+#header-taikhoan-info .user-register .ty-btn {
+	margin-bottom: 15px;
+	width: 90px;
+}
+
+#thongbao-dangnhap.hidden {
+	display: hidden;
+}
+
+#thongbao-dangnhap {
+	color: red;
+	text-align: center;
+	font-style: italic;
+	font-size: 14px;
+}
+
+#cart_status_577 .title_quantri {
+	position: relative;
+	right: -30px;
+	top: 10px;
+}
+
+#cart_status_577 #dropdown_577 #close_dropdown_577 {
+	position: absolute;
+	right: 2px;
+	top: 1px;
+	font-size: 17px;
+	padding: 0px 6px;
+	border-radius: 14%;
+	background-color: #cd3591;
+	color: #fff;
+}
+
+/*Slider */
+.tygh-content .div-slider {
+	padding-bottom: 5px;
+}
+
+.tygh-content .paralax {
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.tygh-content  .paralax-slider {
+	height: 450px;
+}
+
+.tygh-content .slide1 {
+	background-image: url('../../FoderUpLoad/Us_images/slide-8626.jpg');
+}
+
+.tygh-content .slide2 {
+	background-image: url('../../FoderUpLoad/Us_images/slide-8627.jpg');
+}
+
+.tygh-content .slide3 {
+	background-image: url('../../FoderUpLoad/Us_images/slide-8625.jpg');
+}
+
+.tygh-content  .paralax-slider .paralax-text {
+	color: #f5f5f5;
+	padding-top: 224px;
+	padding-left: 134px;
+}
+
+.paralax-slider .paralax-text h3 {
+	font-weight: 300;
+	font-size: 60px;
+}
+
+.paralax-slider .paralax-text h4 {
+	font-weight: 500;
+	font-size: 40px;
+	line-height: 26px;
+}
