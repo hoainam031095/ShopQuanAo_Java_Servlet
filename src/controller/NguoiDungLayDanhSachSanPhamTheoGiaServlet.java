@@ -70,7 +70,15 @@ public class NguoiDungLayDanhSachSanPhamTheoGiaServlet extends HttpServlet {
 			responseText = responseText + "<h4 style=\"text-align: center;font-size: 35px;color: darkgray;\">Không có sản phẩm nào</h4>";
 		else
 		for(SanPham sp: listSP) {
-			responseText = responseText + "<div class=\"ty-column3 data-page\">\r\n" + 
+			responseText = responseText + "<div class=\"ty-column3 data-page\">\r\n";
+			int giam = ((sp.getGia() - sp.getGiaMoi()) * 100) / sp.getGia();
+        	if(giam >=1){
+            	responseText = responseText + "<div class=\"giam-gia\">\r\n" + 
+            			"                        <img alt=\"\" src=\"FoderUpLoad/Us_images/hot.png\">\r\n" + 
+            			"                        <span>-"+ giam +"%</span>\r\n" + 
+            			"                    </div>";
+            } 
+			responseText = responseText + 
 					"    <div class=\"ty-grid-list__item ty-quick-view-button__wrapper\">\r\n" + 
 					"        <form action=\"https://babi.vn/\" method=\"post\" name=\"product_form_399268\" class=\"cm-disable-empty-files cm-ajax cm-ajax-full-render cm-ajax-status-middle cm-processed-form\">\r\n" + 
 					"            <div class=\"ty-grid-list__image\">\r\n" + 
@@ -87,7 +95,11 @@ public class NguoiDungLayDanhSachSanPhamTheoGiaServlet extends HttpServlet {
 					"                <span class=\"cm-reload-399268\" id=\"old_price_update_399268\">\r\n" + 
 					"                </span>\r\n" + 
 					"                <span class=\"cm-reload-399268 ty-price-update\" id=\"price_update_399268\">\r\n" + 
-					"                    <span class=\"ty-price\" id=\"line_discounted_price_399268\">\r\n" + 
+					"                    <span class=\"ty-price\" id=\"line_discounted_price_399268\">\r\n";
+        	if(giam >=1){
+            	responseText = responseText + "<span style=\"color:#afa998a8;\"><del>"+ sp.getGia()+".000&nbsp;đ</del></span>&nbsp;";
+            } 
+        	responseText = responseText + 
 					"                <span id=\"sec_discounted_price_399268\" class=\"ty-price-num\">"+sp.getGiaMoi()+".000 </span>\r\n" + 
 					"                <span class=\"ty-price-num\">đ</span>\r\n" + 
 					"                </span>\r\n" + 

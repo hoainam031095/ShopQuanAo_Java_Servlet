@@ -71,7 +71,15 @@ public class NguoiDungTimKiemServlet extends HttpServlet {
 		}
 		else {
 			for(SanPham sp:listSP) {
-				responseText = responseText + "<div class=\"ty-column4 data-page\">\r\n" + 
+				responseText = responseText + "<div class=\"ty-column4 data-page\">\r\n";
+            	int giam = ((sp.getGia() - sp.getGiaMoi()) * 100) / sp.getGia();
+            	if(giam >=1){
+                	responseText = responseText + "<div class=\"giam-gia\">\r\n" + 
+                			"                        <img alt=\"\" src=\"FoderUpLoad/Us_images/hot.png\">\r\n" + 
+                			"                        <span>-"+ giam +"%</span>\r\n" + 
+                			"                    </div>";
+                } 
+            	responseText = responseText +
 						"                                    <div class=\"ty-grid-list__item ty-quick-view-button__wrapper\">\r\n" + 
 						"                                        <form action=\"#\" method=\"post\" name=\"product_form_22000399268\" class=\"cm-disable-empty-files  cm-ajax cm-ajax-full-render cm-ajax-status-middle  cm-processed-form\">\r\n" + 
 						"                                            <div class=\"ty-grid-list__image\">\r\n" + 
@@ -86,7 +94,11 @@ public class NguoiDungTimKiemServlet extends HttpServlet {
 						"                                                </h3>\r\n" + 
 						"                                            <div class=\"ty-grid-list__price \">\r\n" + 
 						"                                                <span class=\"cm-reload-22000399268\" id=\"old_price_update_22000399268\"></span>\r\n" + 
-						"                                                <span class=\"cm-reload-22000399268 ty-price-update\" id=\"price_update_22000399268\">\r\n" + 
+						"                                                <span class=\"cm-reload-22000399268 ty-price-update\" id=\"price_update_22000399268\">\r\n";
+            	if(giam >=1){
+                	responseText = responseText + "<span style=\"color:#afa998a8;\"><del>"+ sp.getGia()+".000&nbsp;đ</del></span>&nbsp;";
+                } 
+            	responseText = responseText + 
 						"                                                    <span class=\"ty-price\" id=\"line_discounted_price_22000399268\"><span id=\"sec_discounted_price_22000399268\" class=\"ty-price-num\">"+ sp.getGiaMoi()+".000 </span>\r\n" + 
 						"                                                <span class=\"ty-price-num\">đ</span></span>\r\n" + 
 						"                                                <!--price_update_22000399268--></span>\r\n" + 

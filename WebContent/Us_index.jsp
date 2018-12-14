@@ -34,9 +34,9 @@
                                 </ul>
                             </div>
                         </div>
-                        <script type="text/javascript">
-                            
-                        </script>
+                        <!-- <style type="text/css">
+                        	
+                        </style> -->
                     <div class="container-fluid  content-grid">
                         <div class="row-fluid ">                
                             <div class="span16 main-content-grid">
@@ -52,7 +52,16 @@
                                 <div class="grid-list">
                                 	<% ArrayList<SanPham> listSPbanchay = (ArrayList<SanPham>)request.getAttribute("listSPbanchay");
                                 	for(SanPham spbc: listSPbanchay){%>
-                                    <div class="ty-column4">    
+                                    <div class="ty-column4">
+                                    	<%
+                                    	int giam = ((spbc.getGia() - spbc.getGiaMoi()) * 100) / spbc.getGia();
+                                    	if(giam >=1){
+                                    	 %>
+	                                    	<div class="giam-gia">
+	                                            <img alt="" src="FoderUpLoad/Us_images/hot.png">
+	                                            <span>-<%=giam%>%</span>
+	                                        </div>
+                                        <% }%>    
                                         <div class="ty-grid-list__item ty-quick-view-button__wrapper">
                                             <form action="" method="post" class="cm-disable-empty-files  cm-ajax cm-ajax-full-render cm-ajax-status-middle  cm-processed-form">
                                                 <div class="ty-grid-list__image">
@@ -69,6 +78,10 @@
                                                    <span class="cm-reload-22000399268" id="old_price_update_22000399268"></span>
                                                    <span class="cm-reload-22000399268 ty-price-update" id="price_update_22000399268">
                                                     <span class="ty-price" id="line_discounted_price_22000399268">
+                                                    	<%if (giam >=1){%>
+                                                    		<span style="color:#afa998a8;"><del><%=spbc.getGia()%>.000&nbsp;đ</del></span>&nbsp;
+                                                    		
+                                                    	<%} %>
 	                                                    <span id="sec_discounted_price_22000399268" class="ty-price-num"><%=spbc.getGiaMoi()%>.000</span>&nbsp;
 	                                                    <span class="ty-price-num">đ</span>
                                                     </span>
@@ -103,7 +116,16 @@
                                 <div class="grid-list">
                                 <%ArrayList<SanPham> listSPbegai = (ArrayList<SanPham>)request.getAttribute("listSPbegai");
                                 for(SanPham sp: listSPbegai){%>
-                                    <div class="ty-column4">    
+                                    <div class="ty-column4">
+                                    	<%
+                                    	int giam = ((sp.getGia() - sp.getGiaMoi()) * 100) / sp.getGia();
+                                    	if(giam >=1){
+                                    	 %>
+	                                    	<div class="giam-gia">
+	                                            <img alt="" src="FoderUpLoad/Us_images/hot.png">
+	                                            <span>-<%=giam%>%</span>
+	                                        </div>
+                                        <% }%>     
                                         <div class="ty-grid-list__item ty-quick-view-button__wrapper">
                                             <form action="https://DolaKids.vn/" method="post" class="cm-disable-empty-files  cm-ajax cm-ajax-full-render cm-ajax-status-middle  cm-processed-form">
                                                 <div class="ty-grid-list__image">
@@ -123,6 +145,9 @@
                                                     </span>
                                                     <span class="cm-reload-110000399271 ty-price-update" id="price_update_110000399271">
                                                         <span class="ty-price" id="line_discounted_price_110000399271">
+                                                        	<%if (giam >=1){%>
+                                                    			<span style="color:#afa998a8;"><del><%=sp.getGia()%>.000&nbsp;đ</del></span>&nbsp;
+                                                    		<%} %>
                                                             <span id="sec_discounted_price_110000399271" class="ty-price-num"><%=sp.getGiaMoi() %>.000</span>&nbsp;
                                                             <span class="ty-price-num">đ</span>
                                                         </span>
@@ -159,7 +184,16 @@
                                     <div class="grid-list">
                                     <%ArrayList<SanPham> listSPbetrai = (ArrayList<SanPham>)request.getAttribute("listSPbetrai");
                                     for(SanPham sp: listSPbetrai){%>
-                                        <div class="ty-column4">    
+                                        <div class="ty-column4">
+                                        	<%
+	                                    	int giam = ((sp.getGia() - sp.getGiaMoi()) * 100) / sp.getGia();
+	                                    	if(giam >=1){
+	                                    	 %>
+		                                    	<div class="giam-gia">
+		                                            <img alt="" src="FoderUpLoad/Us_images/hot.png">
+		                                            <span>-<%=giam%>%</span>
+		                                        </div>
+	                                        <% }%>   
                                             <div class="ty-grid-list__item ty-quick-view-button__wrapper">
                                                 <form action="#" method="post" name="product_form_117000399268" class="cm-disable-empty-files  cm-ajax cm-ajax-full-render cm-ajax-status-middle  cm-processed-form">
                                                     <div class="ty-grid-list__image">
@@ -177,6 +211,9 @@
                                                         <!--old_price_update_117000399268--></span>
                                                         <span class="cm-reload-117000399268 ty-price-update" id="price_update_117000399268">
                                                             <span class="ty-price" id="line_discounted_price_117000399268">
+                                                            	<%if (giam >=1){%>
+	                                                    			<span style="color:#afa998a8;"><del><%=sp.getGia()%>.000&nbsp;đ</del></span>&nbsp;
+	                                                    		<%} %>
                                                                 <span id="sec_discounted_price_117000399268" class="ty-price-num"><%=sp.getGiaMoi() %>.000</span>&nbsp;
                                                                 <span class="ty-price-num">đ</span>
                                                             </span>
@@ -207,7 +244,16 @@
                                             <div class="grid-list">
                                             	<%ArrayList<SanPham> listSPsosinh = (ArrayList<SanPham>)request.getAttribute("listSPsosinh");
                                             	 for(SanPham sp:listSPsosinh){%>
-                                                <div class="ty-column4">    
+                                                <div class="ty-column4">
+                                                	<%
+			                                    	int giam = ((sp.getGia() - sp.getGiaMoi()) * 100) / sp.getGia();
+			                                    	if(giam >=1){
+			                                    	 %>
+				                                    	<div class="giam-gia">
+				                                            <img alt="" src="FoderUpLoad/Us_images/hot.png">
+				                                            <span>-<%=giam%>%</span>
+				                                        </div>
+			                                        <% }%>    
                                                     <div class="ty-grid-list__item ty-quick-view-button__wrapper">
                                                         <form action="https://DolaKids.vn/" method="post" name="product_form_118000399219" class="cm-disable-empty-files  cm-ajax cm-ajax-full-render cm-ajax-status-middle  cm-processed-form">
                                                             <div class="ty-grid-list__image">
@@ -224,6 +270,9 @@
                                                                 </span>
                                                                 <span class="cm-reload-118000399219 ty-price-update" id="price_update_118000399219">
                                                                     <span class="ty-price" id="line_discounted_price_118000399219">
+                                                                    <%if (giam >=1){%>
+		                                                    			<span style="color:#afa998a8;"><del><%=sp.getGia()%>.000&nbsp;đ</del></span>&nbsp;
+		                                                    		<%} %>
                                                                     <span id="sec_discounted_price_118000399219" class="ty-price-num"><%=sp.getGiaMoi() %>.000</span>&nbsp;
                                                                     <span class="ty-price-num">đ</span></span>
                                                                 </span>
@@ -259,7 +308,16 @@
                                             <div class="grid-list">
                                             	<%ArrayList<SanPham>listSPphukien = (ArrayList<SanPham>)request.getAttribute("listSPphukien");
                                             	for(SanPham sp :listSPphukien){%>
-                                                <div class="ty-column4">    
+                                                <div class="ty-column4">
+	                                                <%
+				                                    	int giam = ((sp.getGia() - sp.getGiaMoi()) * 100) / sp.getGia();
+				                                    	if(giam >=1){
+				                                    	 %>
+					                                    	<div class="giam-gia">
+					                                            <img alt="" src="FoderUpLoad/Us_images/hot.png">
+					                                            <span>-<%=giam%>%</span>
+					                                        </div>
+				                                        <% }%>     
                                                     <div class="ty-grid-list__item ty-quick-view-button__wrapper">
                                                         <form action="" method="post" name="product_form_77000397256" class="cm-disable-empty-files  cm-ajax cm-ajax-full-render cm-ajax-status-middle  cm-processed-form">
                                                             <div class="ty-grid-list__image">
@@ -276,6 +334,9 @@
                                                                     <!--old_price_update_77000397256--></span>
                                                                     <span class="cm-reload-77000397256 ty-price-update" id="price_update_77000397256">
                                                                         <span class="ty-price" id="line_discounted_price_77000397256">
+                                                                        <%if (giam >=1){%>
+			                                                    			<span style="color:#afa998a8;"><del><%=sp.getGia()%>.000&nbsp;đ</del></span>&nbsp;
+			                                                    		<%} %>
                                                                         <span id="sec_discounted_price_77000397256" class="ty-price-num"><%=sp.getGiaMoi()%>.000</span>&nbsp;
                                                                         <span class="ty-price-num">đ</span>
                                                                     </span>

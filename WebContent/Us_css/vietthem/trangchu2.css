@@ -75,3 +75,23 @@
 	font-size: 40px;
 	line-height: 26px;
 }
+
+/* giam gia san pham */
+.main-content-grid .giam-gia {
+	position: absolute;
+	z-index: 1;
+}
+
+.main-content-grid .giam-gia img {
+	width: 84px;
+    position: relative;
+    left: 190%;
+    top: -15px;
+}
+
+.main-content-grid .giam-gia span {
+	position: relative;
+    left: 143%;
+    top: -15px;
+    color: #fff;
+}

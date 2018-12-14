@@ -49,7 +49,16 @@
                                                     	<h4 style="text-align: center;font-size: 35px;color: darkgray;">Không có sản phẩm nào</h4>
                                                     <%}else
                                                     for(SanPham sp: listSP){%>
-                                                        <div class="ty-column3 data-page">    
+                                                        <div class="ty-column3 data-page">
+                                                        	<%
+					                                    	int giam = ((sp.getGia() - sp.getGiaMoi()) * 100) / sp.getGia();
+					                                    	if(giam >=1){
+					                                    	 %>
+						                                    	<div class="giam-gia">
+						                                            <img alt="" src="FoderUpLoad/Us_images/hot.png">
+						                                            <span>-<%=giam%>%</span>
+						                                        </div>
+					                                        <% }%>     
                                                             <div class="ty-grid-list__item ty-quick-view-button__wrapper">
                                                                 <form action="https://babi.vn/" method="post" name="product_form_399268" class="cm-disable-empty-files  cm-ajax cm-ajax-full-render cm-ajax-status-middle  cm-processed-form">
                                                                     <div class="ty-grid-list__image">
@@ -67,6 +76,9 @@
                                                                         </span>
                                                                         <span class="cm-reload-399268 ty-price-update" id="price_update_399268">
                                                                             <span class="ty-price" id="line_discounted_price_399268">
+                                                                            	<%if (giam >=1){%>
+						                                                    		<span style="color:#afa998a8;"><del><%=sp.getGia()%>.000&nbsp;đ</del></span>&nbsp;
+						                                                    	<%} %>
                                                                                 <span id="sec_discounted_price_399268" class="ty-price-num"><%=sp.getGiaMoi() %>.000</span>&nbsp;
                                                                                 <span class="ty-price-num">đ</span>
                                                                             </span>
