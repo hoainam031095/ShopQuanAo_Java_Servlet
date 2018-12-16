@@ -1,18 +1,12 @@
+<%@page import="model.bean.TinhThanhPho"%>
 <%@page import="model.bean.DoTuoi"%>
 <%@page import="model.bo.DoTuoiBO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@include file = "Us_header.jsp"%>
-<!-- start content -->
-                <style type="text/css">
-                	.tygh-content .ty-mainbox-body .gio-hang .danh-sach-gio-hang{
-                		border: 1px solid #f5d9ea;
-                	}
-                	.tygh-content .ty-mainbox-body .gio-hang .danh-sach-gio-hang td, th{
-                		border: 1px solid #f5d9ea;
-                		padding-top: 5px;
-                	}
-                </style>
+
+<link type="text/css" rel="stylesheet" href="Us_css/vietthem/chitietgiohang.css">
+<!-- start content -->          
                 <div class="tygh-content clearfix">
                     <div class="container-fluid  content-grid">
                         <div class="row-fluid ">                
@@ -26,37 +20,67 @@
                             </div>
                         </div>
                         <div class="row-fluid ">               
-                                    <h1 class="ty-mainbox-title">Thông tin giỏ hàng</h1><button class="btn btn-dathang">Đặt hàng</button>
+                                    <h1 class="ty-mainbox-title">Thông tin giỏ hàng</h1>
+                                    <button class="btn-dathang thong-tin-nguoi-nhan-popup" data-popup-open="popup-2">Đặt hàng</button>
+                                    <div class="popup" data-popup="popup-2">
+										<div class="popup-inner">
+											<div class="popup-header">
+												<h2>Thông tin người nhận hàng</h2>
+											</div>
+											<div class="popup-content">
+												<form action="">
+													<p>
+														Tên người nhận: <span id="them-error-name"></span>
+													</p>
+													<input type="text" id="them-themtenlienhe" class="check-input name">
+													<p>
+														Số điện thoại: <span id="them-error-phone"></span>
+													</p>
+													<input type="text" id="them-sodienthoai" class="check-input phone">
+													<p>
+														Tỉnh/Thành phố:<span id="them-error-tinh"></span>
+													</p>
+													<select class="select2 change-input" id="select-tinh" style="display: inline-block;">
+														<option value="">-- Chọn Tỉnh/Thành phố --</option>
+														<%
+															ArrayList<TinhThanhPho> listTinhThanh = (ArrayList<TinhThanhPho>)request.getAttribute("listTinhThanh");
+															if (listTinhThanh == null) {
+															} else {
+																for (TinhThanhPho tt : listTinhThanh) {
+																%>
+																<option value="<%=tt.getID()%>"><%=tt.getTenTinhThanh()%></option>
+																<%
+																	}
+															}
+															%>
+													</select>
+													<p>
+														Quận/Huyện:<span id="them-error-huyen"></span>
+													</p>
+													<select class="select2 change-input" id="select-huyen" style="display: inline-block;">
+														<option value="">-- Chọn Quận/Huyện --</option>
+													</select>
+													<p>
+														Phường/Xã:<span id="them-error-xa"></span>
+													</p>
+													<select class="select2 change-input" id="select-xa" style="display: inline-block;">
+														<option value="">-- Chọn Phường/Xã --</option>
+													</select>
+													<p>
+														Địa chỉ cụ thể: <span id="them-error-diachicuthe"></span>
+													</p>
+													<input type="text" id="them-diachi-cuthe" class="check-input phone">
+													<p>
+														<button class="ty-btn ty-xacnhan validate" data-popup-close="popup-2">Tiếp theo</button>
+														<button class="ty-btn ty-btn__primary" data-popup-close="popup-2">Hủy</button>
+													</p>
+												</form>
+											</div>
+										</div>
+									</div>
                                     <div class="ty-mainbox-body"><!-- Inline script moved to the bottom of the page -->
                                         <div class="gio-hang">
                                             <form name="profiles_register_form" class="cm-processed-form">
-                                            	<style type="text/css">
-                                            		.field{
-													  width:25%;
-													  margin:0 auto;
-													}
-													.field input{
-													  width:55px;
-													  text-align: center;
-													}
-													.field button{
-													  width:55px;
-													  height: 30px;
-													}
-													.btn-dathang{
-								                		position: fixed;
-													    right: 2px;
-													    top: 93px;
-													    padding: 18px;
-													    border: none;
-													    background-color: #cd3591;
-													    color: #fff;
-													    border-radius: 50%;
-								                	}
-								                	.btn-dathang:hover {
-								                		background: #bd0b77;
-								                	}
-                                            	</style>
                                                 <table class="danh-sach-gio-hang" style="text-align: center; width: 100%;">
                                                 	<thead style="color: #fff; background-color: #cd3591;">
                                                 		<tr style="height: 35px;">
@@ -188,5 +212,5 @@
                         </div>
                     </div>
                 </div>
-
+<script type="text/javascript" src="Us_js/chitietgiohang.js"></script>
 <%@include file="Us_footer.jsp"%>

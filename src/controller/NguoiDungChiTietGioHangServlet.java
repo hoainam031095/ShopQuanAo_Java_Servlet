@@ -1,12 +1,17 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.bean.TinhThanhPho;
+import model.bo.TinhBO;
 import model.dao.ConnectDB;
 
 /**
@@ -38,7 +43,12 @@ public class NguoiDungChiTietGioHangServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		HttpSession ss = request.getSession();
 		ss.setAttribute("limit", ConnectDB.limit());
-		response.sendRedirect("Us_chitietgiohang.jsp");
+		
+		TinhBO tBo = new TinhBO();
+		ArrayList<TinhThanhPho> tinhThanhPho = tBo.layDanhSachTinhThanh();
+		request.setAttribute("listTinhThanh", tinhThanhPho);
+		RequestDispatcher rd = request.getRequestDispatcher("Us_chitietgiohang.jsp");
+		rd.forward(request, response);
 	}
 
 }

@@ -259,4 +259,14 @@
     <servlet-name>NguoiDungChiTietGioHangServlet</servlet-name>
     <url-pattern>/NguoiDungChiTietGioHangServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>NguoiDungSelectDiaChiServlet</display-name>
+    <servlet-name>NguoiDungSelectDiaChiServlet</servlet-name>
+    <servlet-class>controller.NguoiDungSelectDiaChiServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>NguoiDungSelectDiaChiServlet</servlet-name>
+    <url-pattern>/NguoiDungSelectDiaChiServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
