@@ -1,3 +1,4 @@
+<%@page import="model.bean.HoaDonBan"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@include file="Us_header.jsp"%>
@@ -8,11 +9,12 @@
         <div class="span16 main-content-grid">
             <div id="breadcrumbs_10">
                 <div class="ty-breadcrumbs clearfix">
-                    <a href="https://babi.vn/" class="ty-breadcrumbs__a">Trang chủ</a><span class="ty-breadcrumbs__slash">/</span><span class="ty-breadcrumbs__current">Đơn đặt hàng của bạn đã được nhận</span>
+                    <a href="KhachHangTrangChuServlet" class="ty-breadcrumbs__a">Trang chủ</a><span class="ty-breadcrumbs__slash">/</span><span class="ty-breadcrumbs__current">Đơn đặt hàng của bạn đã được nhận</span>
                 </div>
                 <!--breadcrumbs_10-->
             </div>
-            <%String maHD = (String)request.getAttribute("maHD"); %>
+            <%String maHD = (String)request.getAttribute("maHD"); 
+            	ArrayList<HoaDonBan> listHdbBan = (ArrayList<HoaDonBan>)request.getAttribute("listHdbBan");%>
             <div class="ty-mainbox-container clearfix">
                 <h1 class="ty-mainbox-title">
                     Mã đơn hàng: #<%=maHD%>
@@ -26,18 +28,55 @@
                     <div class="ty-checkout-complete__login-info ty-checkout-complete_width_full">
                     </div>
                     <!-- Inline script moved to the bottom of the page -->
+                    <a href="NguoiDungChiTietHoaDonBanServlet?maHD=<%=maHD%>" class="ty-btn ty-btn__secondary " >Chi tiết đơn hàng</a>
+                    
+                    <div class="ty-checkout-complete__buttons-right">
+                            <a  class="ty-btn ty-btn__secondary text-button" href="KhachHangTrangChuServlet">Chọn thêm</a>
+                    </div>
                     <div class="ty-checkout-complete__buttons buttons-container ">
                         <div class="ty-checkout-complete__buttons-left">
-                            <a href="NguoiDungChiTietHoaDonBanServlet?maHD=<%=maHD%>" class="ty-btn ty-btn__secondary " >Chi tiết đơn hàng</a>
-                            &nbsp;
-                            <% if(ss.getAttribute("Quyen") == null){}
+                            <% if(ss.getAttribute("Quyen") == null)
+                            {
+                            	
+                            }
                             else{%>
-                            	<a href="NguoiDungDanhSachDonDatHangServlet"  class="ty-btn ty-btn__secondary " >Xem các đơn hàng của bạn</a>
+                            	<h1>Danh sách đơn hàng đã mua</h1>
+                            	<div>
+                            		<table>
+                            			<thead>
+                            				<tr>
+                            					<th>Mã hóa đơn</th>
+                            					<th>Tên người nhận</th>
+                            					<th>Số điện thoại</th>
+                            					<th>Địa chỉ</th>
+                            					<th>Ngày mua</th>
+                            					<th>Trạng thái</th>
+                            				</tr>
+                            			</thead>
+                            			<tbody>
+                            				<%for(HoaDonBan hdb: listHdbBan){
+                            					String ngaymua = hdb.getNgayBan().substring(0, 8);
+                            					String trangthai = null;
+                            					if(hdb.getTrangThai() == 0)
+                            						trangthai = "Chưa duyệt";
+                            					else
+                            						trangthai = "Đã duyệt";
+                            				%>
+	                            				<tr>
+	                            					<td><a href="NguoiDungChiTietHoaDonBanServlet?maHD=<%=hdb.getMaHD()%>"><%=hdb.getMaHD()%></a></td>
+	                            					<td><%=hdb.getTenNguoiNhan()%></td>
+	                            					<td><%=hdb.getSoDienThoai()%></td>
+	                            					<td><%=hdb.getDiaChi() %></td>
+	                            					<td><%=ngaymua%></td>
+	                            					<td><%=trangthai %></td>
+	                            				</tr>
+	                            			<%} %>
+                            			</tbody>
+                            		</table>
+                            	</div>		
                             <%}%>
                         </div>
-                        <div class="ty-checkout-complete__buttons-right">
-                            <a  class="ty-btn ty-btn__secondary text-button" href="KhachHangTrangChuServlet">Chọn thêm</a>
-                        </div>
+                        
                     </div>
                 </div>
             </div>

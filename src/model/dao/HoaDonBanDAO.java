@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import model.bean.ChiTietHoaDonBan;
+import model.bean.HoaDonBan;
 
 public class HoaDonBanDAO {
 	static Connection conn;
@@ -90,23 +91,39 @@ public class HoaDonBanDAO {
 		}
 	}
 
-	public ArrayList<String> layDanhSachMaHoaDonMuaTheoMaTaiKhoan(String maTK) {
+	public ArrayList<HoaDonBan> layDanhSachMaHoaDonMuaTheoMaTaiKhoan(String maTK) {
 		// TODO Auto-generated method stub
 		conn = ConnectDB.getConnection();
-		ArrayList<String> listMaHdb = new ArrayList<>();
-		CallableStatement call;
+		rs = null;
+		ArrayList<HoaDonBan> listMaHdb = new ArrayList<>();
+		
 		try {
-			call = conn.prepareCall("call QuanLyShopQuanAo_LayDanhSachHoaDonMuaTheoMaTaiKhoan(?)");
+			CallableStatement call = conn.prepareCall("{call QuanLyShopQuanAo_LayDanhSachHoaDonMuaTheoMaTaiKhoan(?)}");
 			call.setString(1, maTK);
 			rs = call.executeQuery();
 			while(rs.next()) {
-				String maHDBan = rs.getString("MaHD");
-				listMaHdb.add(maHDBan);
+				HoaDonBan hdb = new HoaDonBan();
+				hdb.setMaHD(rs.getString("MaHD"));
+				hdb.setMaTK(rs.getString("MaTK"));
+				hdb.setTenNguoiNhan(rs.getString("TenNguoiNhan"));
+				hdb.setSoDienThoai(rs.getString("SDT"));
+				hdb.setMaTinhThanh(rs.getInt("MaTinhThanh"));
+				hdb.setDiaChi(rs.getString("DiaChi"));
+				hdb.setNgayBan(rs.getString("NgayBan"));
+				hdb.setTrangThai(rs.getInt("TrangThai"));
+				listMaHdb.add(hdb);
 			}
 			return listMaHdb;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		
 		return listMaHdb;

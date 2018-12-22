@@ -2,7 +2,7 @@ package model.bo;
 
 import java.util.ArrayList;
 
-import model.bean.ChiTietHoaDonBan;
+import model.bean.HoaDonBan;
 import model.dao.ConnectDB;
 import model.dao.HoaDonBanDAO;
 
@@ -25,7 +25,7 @@ public class HoaDonBanBO {
 		// TODO Auto-generated method stub
 		hdbDao.themChiTietHoaDonBan(maHD, maSanPham, maMau, maDoTuoi, soLuong, donGia);
 	}
-	public ArrayList<String> layDanhSachMaHoaDonMuaTheoMaTaiKhoan(String maTK) {
+	public ArrayList<HoaDonBan> layDanhSachMaHoaDonMuaTheoMaTaiKhoan(String maTK) {
 		// TODO Auto-generated method stub
 		return hdbDao.layDanhSachMaHoaDonMuaTheoMaTaiKhoan(maTK);
 	}
