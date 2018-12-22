@@ -11,5 +11,9 @@ public class PhuongBO {
 		// TODO Auto-generated method stub
 		return pDao.layDanhSachPhuongXaTheoHuyen(maHuyen);
 	}
+	public PhuongXa layThongTinXaTheoMa(int ma) {
+		// TODO Auto-generated method stub
+		return pDao.layThongTinXaTheoMa(ma);
+	}
 
 }

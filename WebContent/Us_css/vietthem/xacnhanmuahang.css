@@ -1,0 +1,65 @@
+.tygh-content{
+	background-color: #d7d7d775;
+}
+.container-fluid.content-grid{
+	background-color: #fff;
+}
+.ty-breadcrumbs.clearfix{
+	border-bottom: 1px solid #d7d7d752;
+}
+.main-content-grid {
+    width: 100%;
+    padding: 20px 35px;
+}
+.main-content-grid tr{
+	height: 26px;
+}
+.main-content-grid .muc{
+	width: 200px;
+}
+
+.main-content-grid .tt{
+	color: #000000ad;
+	font-weight: 700;
+	font-style: italic;
+}
+
+.main-content-grid .thongtin-giaohang{
+	font-size: 16px;
+}
+
+
+.main-content-grid .thongtin-sanpham{
+	padding: 15px 0px;
+    font-size: 16px;
+    font-family: initial;
+}
+.main-content-grid .thongtin-sanpham table{
+    border: 1px dotted #00000029;
+    width: 88%;
+}
+.main-content-grid .thongtin-sanpham tr{
+	border-bottom: 1px dotted #00000029;
+}
+.main-content-grid .thongtin-sanpham td{
+	text-align: center;
+}
+.main-content-grid .thongtin-sanpham .thong-tin-san-pham{
+	margin: 0 auto;
+    text-align: left;
+    width: 85%;
+    font-size: 14.8px;
+    padding: 8px 0px;
+}
+.main-content-grid .thanhtoan{
+	font-size: 16px;
+	padding-bottom: 50px;
+	padding-top: 12px;
+}
+.main-content-grid .ty-xacnhan{
+	background-color: #6cad08;
+}
+.main-content-grid .ty-xacnhan:hover{
+	background-color: #1c9826;
+}
+

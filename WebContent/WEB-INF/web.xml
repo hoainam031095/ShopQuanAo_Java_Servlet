@@ -269,4 +269,44 @@
     <servlet-name>NguoiDungSelectDiaChiServlet</servlet-name>
     <url-pattern>/NguoiDungSelectDiaChiServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>NguoiDungXacNhanMuaHangServlet</display-name>
+    <servlet-name>NguoiDungXacNhanMuaHangServlet</servlet-name>
+    <servlet-class>controller.NguoiDungXacNhanMuaHangServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>NguoiDungXacNhanMuaHangServlet</servlet-name>
+    <url-pattern>/NguoiDungXacNhanMuaHangServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>NguoiDungMuaHangServlet</display-name>
+    <servlet-name>NguoiDungMuaHangServlet</servlet-name>
+    <servlet-class>controller.NguoiDungMuaHangServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>NguoiDungMuaHangServlet</servlet-name>
+    <url-pattern>/NguoiDungMuaHangServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>NguoiDungHoaDonNhapServlet</display-name>
+    <servlet-name>NguoiDungHoaDonNhapServlet</servlet-name>
+    <servlet-class>controller.NguoiDungHoaDonNhapServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>NguoiDungHoaDonNhapServlet</servlet-name>
+    <url-pattern>/NguoiDungHoaDonNhapServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>NguoiDungChiTietHoaDonBanServlet</display-name>
+    <servlet-name>NguoiDungChiTietHoaDonBanServlet</servlet-name>
+    <servlet-class>controller.NguoiDungChiTietHoaDonBanServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>NguoiDungChiTietHoaDonBanServlet</servlet-name>
+    <url-pattern>/NguoiDungChiTietHoaDonBanServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

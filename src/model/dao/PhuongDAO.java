@@ -43,5 +43,34 @@ public class PhuongDAO {
 		}
 		return listPhuongXa;
 	}
+	public PhuongXa layThongTinXaTheoMa(int ma) {
+		// TODO Auto-generated method stub
+		conn = ConnectDB.getConnection();
+		PhuongXa ttp = new PhuongXa();
+		try {
+			PreparedStatement psttm = conn.prepareStatement("select * from tblXa where ID = ?");
+			psttm.setInt(1, ma);
+			rs = psttm.executeQuery();
+			while(rs.next()) {
+				ttp.setMaPhuongXa(rs.getInt("ID"));
+				ttp.setTenPhuongXa(rs.getString("TenXa"));
+				ttp.setMaQuanHuyen(rs.getInt("IDHuyen"));
+			}
+			return ttp;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		finally {
+			try {
+				conn.close();
+				rs.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return ttp;
+	}
 
 }

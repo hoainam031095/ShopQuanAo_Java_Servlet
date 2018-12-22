@@ -181,8 +181,8 @@
 													class="cm-cart-buttons ty-cart-content__buttons buttons-container">
 													<div class="ty-float-right">
 														<a href="NguoiDungChiTietGioHangServlet" rel="nofollow" class="ty-btn ty-btn__primary">Chi tiết</a>
-														<a href="https://DolaKids.vn/index.php?dispatch=checkout.checkout"
-															rel="nofollow" class="ty-btn ty-btn__primary">Đặt hàng</a>
+														<!-- <a href="https://DolaKids.vn/index.php?dispatch=checkout.checkout"
+															rel="nofollow" class="ty-btn ty-btn__primary">Đặt hàng</a> -->
 													</div>
 												</div>
 												<%
@@ -261,8 +261,8 @@
 														class="cm-cart-buttons ty-cart-content__buttons buttons-container">
 														<div class="ty-float-right">
 															<a href="NguoiDungChiTietGioHangServlet" rel="nofollow" class="ty-btn ty-btn__primary">Chi tiết</a>
-															<a href="https://DolaKids.vn/index.php?dispatch=checkout.checkout"
-																rel="nofollow" class="ty-btn ty-btn__primary">Đặt hàng</a>
+															<!-- <a href="https://DolaKids.vn/index.php?dispatch=checkout.checkout"
+																rel="nofollow" class="ty-btn ty-btn__primary">Đặt hàng</a> -->
 														</div>
 													</div>
 													<%

@@ -28,19 +28,19 @@
 												<h2>Thông tin người nhận hàng</h2>
 											</div>
 											<div class="popup-content">
-												<form action="">
+												<form action="NguoiDungXacNhanMuaHangServlet">
 													<p>
 														Tên người nhận: <span id="them-error-name"></span>
 													</p>
-													<input type="text" id="them-themtenlienhe" class="check-input name">
+													<input type="text" id="them-themtenlienhe" class="check-input name" name="tennguoinhan">
 													<p>
 														Số điện thoại: <span id="them-error-phone"></span>
 													</p>
-													<input type="text" id="them-sodienthoai" class="check-input phone">
+													<input type="text" id="them-sodienthoai" class="check-input phone" name="dienthoainguoinhan">
 													<p>
 														Tỉnh/Thành phố:<span id="them-error-tinh"></span>
 													</p>
-													<select class="select2 change-input" id="select-tinh" style="display: inline-block;">
+													<select class="select2 change-input" id="select-tinh" name="tinhthanhpho" style="display: inline-block;" >
 														<option value="">-- Chọn Tỉnh/Thành phố --</option>
 														<%
 															ArrayList<TinhThanhPho> listTinhThanh = (ArrayList<TinhThanhPho>)request.getAttribute("listTinhThanh");
@@ -57,21 +57,21 @@
 													<p>
 														Quận/Huyện:<span id="them-error-huyen"></span>
 													</p>
-													<select class="select2 change-input" id="select-huyen" style="display: inline-block;">
+													<select class="select2 change-input" id="select-huyen" name="quanhuyen" style="display: inline-block;" >
 														<option value="">-- Chọn Quận/Huyện --</option>
 													</select>
 													<p>
 														Phường/Xã:<span id="them-error-xa"></span>
 													</p>
-													<select class="select2 change-input" id="select-xa" style="display: inline-block;">
+													<select class="select2 change-input" id="select-xa" name="phuongxa" style="display: inline-block;">
 														<option value="">-- Chọn Phường/Xã --</option>
 													</select>
 													<p>
 														Địa chỉ cụ thể: <span id="them-error-diachicuthe"></span>
 													</p>
-													<input type="text" id="them-diachi-cuthe" class="check-input phone">
+													<input type="text" id="them-diachi-cuthe" class="check-input phone" name="diachicuthe">
 													<p>
-														<button class="ty-btn ty-xacnhan validate" data-popup-close="popup-2">Tiếp theo</button>
+														<button type="submit" class="ty-btn ty-xacnhan validate">Tiếp theo</button>
 														<button class="ty-btn ty-btn__primary" data-popup-close="popup-2">Hủy</button>
 													</p>
 												</form>

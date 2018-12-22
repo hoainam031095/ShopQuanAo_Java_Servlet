@@ -25,6 +25,12 @@ $(document).ready(function() {
 	});
 //	VALIDATE xác nhận địa chỉ nhận hàng
 	$(".thong-tin-nguoi-nhan-popup").on('click',function(){
+		$("#them-themtenlienhe").val('');
+		$("#them-sodienthoai").val('');
+		$('#select-tinh').prop('selectedIndex',0);
+		$('#select-huyen').html('<option value="">-- Chọn Quận/Huyện --</option>');
+		$('#select-xa').html('<option value="">-- Chọn Phường/Xã --</option>');
+		$("#them-diachi-cuthe").val('');
 		$(".validate").prop( "disabled", true );
 		$(".validate").addClass("styleDisabled");
 		$("#them-error-name").html("Trường bắt buộc!");

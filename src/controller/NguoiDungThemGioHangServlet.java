@@ -159,7 +159,7 @@ public class NguoiDungThemGioHangServlet extends HttpServlet {
 		String responseText = "<div class=\"ty-product-notification__item clearfix\">\r\n" + 
 				"    <span class=\"hidden icon-83\"></span><span class=\"babi-icon babi-icon-2\"></span><img class=\"ty-pict  ty-product-notification__image  \" src=\"FoderUpLoad/Us_images/SanPham/"+imageName+"\" width=\"60\" height=\"60\">\r\n" + 
 				"    <div class=\"ty-product-notification__content clearfix\">\r\n" + 
-				"        <a href=\"https://babi.vn/do-bo-be-gai-tay-canh-doi-phoi-ren-dieu-da.html\" class=\"ty-product-notification__product-name\">"+sp1.getTenSanPham()+"_"+selectedMaMau+"_"+selectedMaDoTuoi+"</a>\r\n" + 
+				"        <a href=\"#\" class=\"ty-product-notification__product-name\">"+sp1.getTenSanPham()+"_"+selectedMaMau+"_"+selectedMaDoTuoi+"</a>\r\n" + 
 				"        <div class=\"ty-product-notification__price\" style=\"color:red; font-size:15px;\">\r\n" + 
 				"            <span class=\"none\">"+selectedSoLuong+"</span>&nbsp;x&nbsp;<span id=\"sec_price_604966631\" class=\"none\">"+selectedDonGia+".000</span>&nbsp;<span class=\"none\">đ</span>\r\n" + 
 				"        </div>\r\n" + 

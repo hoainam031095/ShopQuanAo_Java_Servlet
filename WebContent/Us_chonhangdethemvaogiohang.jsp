@@ -222,7 +222,7 @@
 																					                <a href="KhachHangTrangChuServlet" class="ty-btn ty-btn__secondary ">Chọn thêm</a>
 																					            </div>
 																					            <div class="ty-float-right">
-																					                <a href="https://babi.vn/index.php?dispatch=checkout.checkout" class="ty-btn ty-btn__primary ">Đặt hàng</a>
+																					                <a href="NguoiDungChiTietGioHangServlet" class="ty-btn ty-btn__primary ">Đặt hàng</a>
 																					            </div>
 																					            <div class="clearfix"></div>
 																					            <div class="clearfix ty-product-notification__tooltip">Mẹo: "Chọn thêm" vào Giỏ hàng nhiều mẫu bạn thích và chỉ cần "Đặt hàng" 1 lần nhiều món.</div>

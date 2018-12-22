@@ -11,5 +11,9 @@ public class TinhBO {
 		// TODO Auto-generated method stub
 		return tDao.layDanhSachTinhThanhPho();
 	}
+	public TinhThanhPho layThongTinTinhTheoMa(int ma) {
+		// TODO Auto-generated method stub
+		return tDao.layThongTinTinhTheoMa(ma);
+	}
 
 }

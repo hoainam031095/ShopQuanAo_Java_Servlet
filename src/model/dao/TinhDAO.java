@@ -41,5 +41,33 @@ public class TinhDAO {
 		}
 		return listTinhThanhPho;
 	}
+	public TinhThanhPho layThongTinTinhTheoMa(int ma) {
+		// TODO Auto-generated method stub
+		conn = ConnectDB.getConnection();
+		TinhThanhPho ttp = new TinhThanhPho();
+		try {
+			PreparedStatement psttm = conn.prepareStatement("select * from tblTinh where ID = ?");
+			psttm.setInt(1, ma);
+			rs = psttm.executeQuery();
+			if(rs.next()) {
+				ttp.setID(rs.getInt("ID"));
+				ttp.setTenTinhThanh(rs.getString("TenTinh"));
+			}
+			return ttp;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		finally {
+			try {
+				conn.close();
+				rs.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return ttp;
+	}
 
 }

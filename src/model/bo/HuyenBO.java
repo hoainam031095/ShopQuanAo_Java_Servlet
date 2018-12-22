@@ -12,5 +12,9 @@ public class HuyenBO {
 		// TODO Auto-generated method stub
 		return hDao.layDanhSachHuyenTheoTinh(maTinh);
 	}
+	public QuanHuyen layThongTinHuyenTheoMa(int ma) {
+		// TODO Auto-generated method stub
+		return hDao.layThongTinHuyenTheoMa(ma);
+	}
 
 }
