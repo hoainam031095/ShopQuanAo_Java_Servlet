@@ -1,3 +1,5 @@
+<%@page import="java.util.Calendar"%>
+<%@page import="java.time.LocalDate"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -25,11 +27,15 @@
 	<div class="wrapper">
 		<%@include file="Ad_header.jsp"%>
 		<!-- Content Wrapper. Contains page content -->
+		<%
+		int nowYear = Calendar.getInstance().get(Calendar.YEAR);
+		int nowMonth = Calendar.getInstance().get(Calendar.MONTH) + 1;
+		%>
 		<div class="content-wrapper">
 			<!-- Content Header (Page header) -->
 			<section class="content-header">
 				<h1>
-					Tổng quan
+					Tổng quan tính đến tháng <%=nowMonth%>-<%=nowYear%>
 					<!-- <small>Tháng 10</small> -->
 				</h1>
 				<!-- <ol class="breadcrumb">
@@ -58,11 +64,12 @@
 					<!-- /.col -->
 					<div class="col-md-3 col-sm-6 col-xs-12">
 						<div class="info-box">
+						<% String soLuongKhachHang = (String)request.getAttribute("soLuongKhachHang"); %>
 							<span class="info-box-icon bg-red"><i
 								class="ion ion-ios-people-outline"></i></span>
 							<div class="info-box-content">
-								<span class="info-box-text">Khách hàng</span> <span
-									class="info-box-number">2,000</span>
+								<span class="info-box-text">Khách hàng</span> 
+								<span class="info-box-number"><%=soLuongKhachHang%></span>
 							</div>
 							<!-- /.info-box-content -->
 						</div>
@@ -75,12 +82,13 @@
 
 					<div class="col-md-3 col-sm-6 col-xs-12">
 						<div class="info-box">
+						<% String soLuongDonHang = (String)request.getAttribute("soLuongDonHang"); %>
 							<span class="info-box-icon bg-green"><i
 								class="fa fa-cart-plus" aria-hidden="true"></i></span>
 
 							<div class="info-box-content">
 								<span class="info-box-text">Đơn hàng</span> <span
-									class="info-box-number">9,000</span>
+									class="info-box-number"><%=soLuongDonHang %></span>
 							</div>
 							<!-- /.info-box-content -->
 						</div>
@@ -111,23 +119,33 @@
 						<div class="box">
 							<div class="box-header with-border">
 								<h3 class="box-title">Báo cáo tổng quan doanh số của shop</h3>
-
+								<select id="yearSelect" style="    border: none; font-size: 17px; font-weight: 600;">
+									<%
+									for(int i = nowYear-5; i<= nowYear; i++){
+									 	if(i == nowYear){%>
+										<option value="<%=i%>" selected="selected"><%=i%></option>
+										<%}else{ %>
+										<option value="<%=i%>"><%=i%></option>
+										<%}
+									}%>
+								</select>
+								
 								<div class="box-tools pull-right">
 									<button type="button" class="btn btn-box-tool"
 										data-widget="collapse">
 										<i class="fa fa-minus"></i>
 									</button>
 									<!-- <div class="btn-group">
-                  <button type="button" class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown">
-                    <i class="fa fa-wrench"></i></button>
-                  <ul class="dropdown-menu" role="menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li class="divider"></li>
-                    <li><a href="#">Separated link</a></li>
-                  </ul>
-              </div> -->
+						                  <button type="button" class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown">
+						                    <i class="fa fa-wrench"></i></button>
+						                  <ul class="dropdown-menu" role="menu">
+						                    <li><a href="#">Action</a></li>
+						                    <li><a href="#">Another action</a></li>
+						                    <li><a href="#">Something else here</a></li>
+						                    <li class="divider"></li>
+						                    <li><a href="#">Separated link</a></li>
+						                  </ul>
+						              </div> -->
 									<button type="button" class="btn btn-box-tool"
 										data-widget="remove">
 										<i class="fa fa-times"></i>
@@ -136,30 +154,31 @@
 							</div>
 							<!-- /.box-header -->
 							<div class="box-body">
+							<%String doanhSo = (String)request.getAttribute("doanhSo"); %>
 								<div class="row">
 									<div class="col-md-12">
 										<!-- <p class="text-center">
-      				<strong>Tổng quan mua hàng của năm: 2018 so với 2017</strong>
-      			</p> -->
+						      				<strong>Tổng quan mua hàng của năm: 2018 so với 2017</strong>
+						      			</p> -->
 										<div class="chart">
-											<span id="dataChartLine" style="display: none;">54, 65, 74, 42, 32, 12, 32, 46, 20</span>
+											<span id="dataChartLine" style="display: none;"><%=doanhSo%></span>
 											<div id="chartContainer" style="height: 300px; width: 100%;"></div>
 										</div>
 										<!-- /.chart-responsive -->
 									</div>
 									<!-- <div class="col-md-2">
-      			<div class="progress-group" style="height: 30px;">
-      			</div>
-      			<div class="progress-group">
-      				<i class="fa fa-circle" style="color: rgba(220,220,220,1)"></i><span class="progress-text"> Năm 2017</span>
-      			</div>
-      			/.progress-group
-      			<div class="progress-group">
-      				<i class="fa fa-circle" style="color: rgba(26,154,20,1)"></i><span class="progress-text"> Năm 2018</span>
-      			</div>
-      			/.progress-group
-      			/.progress-group
-      		</div> -->
+							      			<div class="progress-group" style="height: 30px;">
+							      			</div>
+							      			<div class="progress-group">
+							      				<i class="fa fa-circle" style="color: rgba(220,220,220,1)"></i><span class="progress-text"> Năm 2017</span>
+							      			</div>
+							      			/.progress-group
+							      			<div class="progress-group">
+							      				<i class="fa fa-circle" style="color: rgba(26,154,20,1)"></i><span class="progress-text"> Năm 2018</span>
+							      			</div>
+							      			/.progress-group
+							      			/.progress-group
+							      		</div> -->
 								</div>
 								<!-- /.row -->
 							</div>
@@ -555,6 +574,7 @@
 
 	<!-- jQuery 3 -->
 	<script src="Ad_bower_components/jquery/dist/jquery.min.js"></script>
+	<script type="text/javascript"></script>
 	<!-- Bootstrap 3.3.7 -->
 	<script src="Ad_bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script src="Ad_dist/js/adminlte.min.js"></script>
@@ -562,5 +582,6 @@
 	<script type="text/javascript" src="Ad_bower_components/chart.js/src/ChartGoogle/loader.js"></script>
 	<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 	<script type="text/javascript" src="Ad_bower_components/chart.js/src/Chart.HoaiNam.js"></script>
+	<script type="text/javascript" src="Ad_js/Ad_index.js"></script>
 </body>
 </html>

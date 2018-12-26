@@ -45,6 +45,10 @@
                                     <div class="ty-mainbox-body"><!-- Inline script moved to the bottom of the page -->
                                         <div class="ty-account">
                                             <form action="NguoiDungDangKyServlet" class="cm-processed-form">
+                                            	<div class="ty-control-group">
+                                                    <label for="tenHienThi" class="ty-control-group__title cm-required cm-email cm-trim">Tên hiển thị</label>
+                                                    <input type="text" id="tenHienThi" name="tenHienThi" size="32" maxlength="128" value="" class="ty-input-text cm-focus">
+                                                </div>
                                                 <div class="ty-control-group">
                                                     <label for="taiKhoan" class="ty-control-group__title cm-required cm-email cm-trim">Tên tài khoản</label>
                                                     <input type="text" id="taiKhoan" name="taiKhoan" size="32" maxlength="128" value="" class="ty-input-text cm-focus">

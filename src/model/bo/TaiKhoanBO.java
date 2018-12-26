@@ -14,8 +14,8 @@ public class TaiKhoanBO {
 		return dao.layNguoiDung(userName, passWord);
 	}
 
-	public void themTaiKhoan(String maTaiKhoan, String tenTaiKhoan, String matKhau,int rule, String email) {
-		dao.themTaiKhoan(maTaiKhoan, tenTaiKhoan,matKhau,rule,email);
+	public void themTaiKhoan(String maTaiKhoan, String tenHienThi, String tenTaiKhoan, String matKhau,int rule, String email) {
+		dao.themTaiKhoan(maTaiKhoan, tenHienThi, tenTaiKhoan,matKhau,rule,email);
 		
 	}
 	

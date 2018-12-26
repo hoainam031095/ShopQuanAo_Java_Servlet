@@ -54,5 +54,33 @@ public class ChiTietHoaDonDAO {
 		}
 		return listCTHDban;
 	}
+	public String tongDoanhThuTrongThang(String nowYear, String month) {
+		// TODO Auto-generated method stub
+		conn = ConnectDB.getConnection();
+		rs = null;
+		String doanhThu = "";
+		try {
+			CallableStatement call = conn.prepareCall("{call QuanLyShopQuanAo_LayThongKeDoanhThuTheoNam(?,?)}");
+			call.setString(1, nowYear);
+			call.setString(2, month);
+			rs = call.executeQuery();
+			if(rs.next()) {
+				doanhThu = (rs.getInt("doanhThu")) + "";
+			}
+			return doanhThu;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			try {
+				conn.close();
+				rs.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return doanhThu;
+	}
 
 }

@@ -91,7 +91,7 @@
 //// == End Chart Pie and  Line Admin LTE
 
   // ==Start Line Chart Google
-  window.onload = function () {
+  window.onload = function(){
 
   var dataChartLine = document.getElementById('dataChartLine').innerHTML.split(',');
   var dataMarkerType =[]; var dataMarkerColor = [];
@@ -108,12 +108,12 @@
       dataMarkerColor[i] = 'tomato';
     }
   }
-
+  var textLayout = "Báo cáo năm " + document.getElementById('yearSelect').value;
   var chart = new CanvasJS.Chart("chartContainer", {
   theme: "light2", // "light1", "light2", "dark1", "dark2"
   animationEnabled: true,
   title:{
-    text: "Báo cáo năm 2018"   
+    text: textLayout,  
   },
   axisX: {
     interval: 1,
@@ -121,13 +121,13 @@
   },
   axisY:{
     // title: "Thu nhập",
-    valueFormatString: "$#0"
+    valueFormatString: "#.000đ"
   },
   data: [{        
     type: "line",
     markerSize: 12,
     xValueFormatString: "T##",
-    yValueFormatString: "$###.#",
+    yValueFormatString: "###.#000đ",
     dataPoints: [
         { x: 1 , y: parseInt(dataChartLine[0]), markerType: dataMarkerType[0],  markerColor: dataMarkerColor[0]},
         { x: 2 , y: parseInt(dataChartLine[1]), markerType: dataMarkerType[1],  markerColor: dataMarkerColor[1] },

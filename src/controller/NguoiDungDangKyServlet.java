@@ -42,6 +42,7 @@ public class NguoiDungDangKyServlet extends HttpServlet {
 		if("submit".equals(request.getParameter("submit"))) {
 			TaiKhoanBO tkBO = new TaiKhoanBO();
 			String maTaiKhoan = "TK" + String.format("%05d", tkBO.sinhma()+1);
+			String tenHienThi = request.getParameter("tenHienThi");
 			String tenTaiKhoan = request.getParameter("taiKhoan");
 			String matKhau = request.getParameter("passWord");
 			int rule = 3;
@@ -49,7 +50,7 @@ public class NguoiDungDangKyServlet extends HttpServlet {
 				rule = 3;
 			}
 			String email = request.getParameter("email");
-			tkBO.themTaiKhoan(maTaiKhoan,tenTaiKhoan,matKhau,rule, email);
+			tkBO.themTaiKhoan(maTaiKhoan,tenHienThi, tenTaiKhoan, matKhau.hashCode()+"",rule, email);
 			response.sendRedirect("DangNhapServlet?userName="+tenTaiKhoan+"&passWord="+matKhau);
 		}
 		else {

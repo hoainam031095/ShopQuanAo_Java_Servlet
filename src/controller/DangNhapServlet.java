@@ -43,7 +43,7 @@ public class DangNhapServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 
 		String userName = request.getParameter("userName");
-		String passWord = request.getParameter("passWord");
+		String passWord = request.getParameter("passWord").hashCode()+"";
 		String ajaxLimit = request.getParameter("ajaxLimit");
 
 		TaiKhoanBO bo = new TaiKhoanBO();

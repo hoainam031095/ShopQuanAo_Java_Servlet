@@ -2,6 +2,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@include file="Us_header.jsp"%>
+
+<link type="text/css" rel="stylesheet" href="Us_css/vietthem/hoadonmuahang.css">
 <!-- start content -->
 <div class="tygh-content clearfix">
 	<div class="container-fluid  content-grid">
@@ -41,7 +43,7 @@
                             }
                             else{%>
                             	<h1>Danh sách đơn hàng đã mua</h1>
-                            	<div>
+                            	<div class="danhsachhoadon">
                             		<table>
                             			<thead>
                             				<tr>
@@ -55,15 +57,15 @@
                             			</thead>
                             			<tbody>
                             				<%for(HoaDonBan hdb: listHdbBan){
-                            					String ngaymua = hdb.getNgayBan().substring(0, 8);
+                            					String ngaymua = hdb.getNgayBan().substring(0, 10);
                             					String trangthai = null;
                             					if(hdb.getTrangThai() == 0)
                             						trangthai = "Chưa duyệt";
                             					else
                             						trangthai = "Đã duyệt";
                             				%>
-	                            				<tr>
-	                            					<td><a href="NguoiDungChiTietHoaDonBanServlet?maHD=<%=hdb.getMaHD()%>"><%=hdb.getMaHD()%></a></td>
+	                            				<tr class="tr">
+	                            					<td><a href="NguoiDungChiTietHoaDonBanServlet?maHD=<%=hdb.getMaHD()%>" target="_blank"><%=hdb.getMaHD()%></a></td>
 	                            					<td><%=hdb.getTenNguoiNhan()%></td>
 	                            					<td><%=hdb.getSoDienThoai()%></td>
 	                            					<td><%=hdb.getDiaChi() %></td>

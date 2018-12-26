@@ -29,4 +29,12 @@ public class HoaDonBanBO {
 		// TODO Auto-generated method stub
 		return hdbDao.layDanhSachMaHoaDonMuaTheoMaTaiKhoan(maTK);
 	}
+	public String laySoLuongKhachHangTrongThang(String nowYear, String nowMonth) {
+		// TODO Auto-generated method stub
+		return hdbDao.laySoLuongKhachHangTrongThang(nowYear, nowMonth);
+	}
+	public String laySoLuongDonHangTrongThang(String nowYear, String nowMonth) {
+		// TODO Auto-generated method stub
+		return hdbDao.laySoLuongDonHangTrongThang(nowYear, nowMonth);
+	}
 }

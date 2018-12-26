@@ -129,4 +129,62 @@ public class HoaDonBanDAO {
 		return listMaHdb;
 	}
 
+	public String laySoLuongKhachHangTrongThang(String nowYear, String nowMonth) {
+		// TODO Auto-generated method stub
+		conn = ConnectDB.getConnection();
+		rs = null;
+		String soLuongKhachHang = "";
+		try {
+			CallableStatement call = conn.prepareCall("{call QuanLyShopQuanAo_SoLuongKhachHangCuaThang(?,?)}");
+			call.setString(1, nowYear);
+			call.setString(2, nowMonth);
+			rs = call.executeQuery();
+			if(rs.next()) {
+				soLuongKhachHang = (rs.getInt("soluongkhachhang")) + "";
+			}
+			return soLuongKhachHang;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			try {
+				conn.close();
+				rs.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return soLuongKhachHang;
+	}
+
+	public String laySoLuongDonHangTrongThang(String nowYear, String nowMonth) {
+		// TODO Auto-generated method stub
+		conn = ConnectDB.getConnection();
+		rs = null;
+		String soLuongDonHang = "";
+		try {
+			CallableStatement call = conn.prepareCall("{call QuanLyShopQuanAo_SoLuongDonHangCuaThang(?,?)}");
+			call.setString(1, nowYear);
+			call.setString(2, nowMonth);
+			rs = call.executeQuery();
+			if(rs.next()) {
+				soLuongDonHang = (rs.getInt("soluongdonhang")) + "";
+			}
+			return soLuongDonHang;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			try {
+				conn.close();
+				rs.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return soLuongDonHang;
+	}
+
 }

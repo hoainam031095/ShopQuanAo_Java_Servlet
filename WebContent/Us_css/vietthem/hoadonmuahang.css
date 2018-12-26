@@ -1,0 +1,16 @@
+.ty-checkout-complete__buttons-left{
+	width: 100%;
+}
+.ty-checkout-complete__buttons-left .danhsachhoadon{
+	width:100%;
+}
+.ty-checkout-complete__buttons-left .danhsachhoadon table{
+	width:100%;
+	text-align: center;
+}
+.ty-checkout-complete__buttons-left .danhsachhoadon .tr{
+	height: 58px;
+}
+.ty-checkout-complete__buttons-left .danhsachhoadon a{
+	color: #0000ff;
+}

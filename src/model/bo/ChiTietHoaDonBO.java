@@ -12,5 +12,10 @@ public class ChiTietHoaDonBO {
 		// TODO Auto-generated method stub
 		return cthdDao.layThongTinHoaDonBanTheoMa(maHD);
 	}
+
+	public String tongDoanhThuTrongThang(String nowYear, String month) {
+		// TODO Auto-generated method stub
+		return cthdDao.tongDoanhThuTrongThang(nowYear, month);
+	}
 	
 }

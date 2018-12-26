@@ -47,15 +47,16 @@ public class TaiKhoanDAO {
 		return tk;
 	}
 
-	public void themTaiKhoan(String maTaiKhoan, String tenTaiKhoan, String matKhau,int rule, String email) {
+	public void themTaiKhoan(String maTaiKhoan, String tenHienThi, String tenTaiKhoan, String matKhau,int rule, String email) {
 		conn = ConnectDB.getConnection();
 		try {
-			CallableStatement call = conn.prepareCall("{call QuanLyShopQuanAo_ThemTaiKhoan(?,?,?,?,?)}");
+			CallableStatement call = conn.prepareCall("{call QuanLyShopQuanAo_ThemTaiKhoan(?,?,?,?,?,?)}");
 			call.setString(1, maTaiKhoan);
-			call.setString(2, tenTaiKhoan);
-			call.setString(3, matKhau);
-			call.setInt(4, rule);
-			call.setString(5, email);
+			call.setString(2, tenHienThi);
+			call.setString(3, tenTaiKhoan);
+			call.setString(4, matKhau);
+			call.setInt(5, rule);
+			call.setString(6, email);
 			call.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
