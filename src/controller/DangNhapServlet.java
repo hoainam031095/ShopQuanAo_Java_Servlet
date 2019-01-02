@@ -60,6 +60,7 @@ public class DangNhapServlet extends HttpServlet {
 					response.sendRedirect("KhachHangTrangChuServlet");
 				} else {
 					HttpSession ss = request.getSession();
+					ss.setAttribute("MaTaiKhoan", tk.getMaTaikhoan()+"");
 					ss.setAttribute("Ten", tk.getHoTen() + "");
 					ss.setAttribute("Quyen", tk.getQuyen() + "");
 					response.sendRedirect("QuanTriTrangChuServlet");
@@ -80,6 +81,7 @@ public class DangNhapServlet extends HttpServlet {
 					response.getWriter().write("KhachHangTrangChuServlet");
 				} else {
 					HttpSession ss = request.getSession();
+					ss.setAttribute("MaTaiKhoan", tk.getMaTaikhoan()+"");
 					ss.setAttribute("Ten", tk.getHoTen() + "");
 					ss.setAttribute("Quyen", tk.getQuyen() + "");
 					response.getWriter().write("QuanTriTrangChuServlet");

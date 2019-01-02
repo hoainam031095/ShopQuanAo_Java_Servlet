@@ -97,12 +97,13 @@
 
 					<div class="col-md-3 col-sm-6 col-xs-12">
 						<div class="info-box">
+						<%String tongDoanhThuCuaNam = (String)request.getAttribute("tongDoanhThuCuaNam");%>
 							<span class="info-box-icon  bg-yellow"><i
 								class="fa fa-usd" aria-hidden="true"></i></span>
 
 							<div class="info-box-content">
 								<span class="info-box-text">Tổng tiền thu được</span> <span
-									class="info-box-number">11,000<small>$</small></span>
+									class="info-box-number"><%=tongDoanhThuCuaNam %>.000<small>đ</small></span>
 							</div>
 							<!-- /.info-box-content -->
 						</div>
@@ -118,7 +119,7 @@
 					<div class="col-md-12">
 						<div class="box">
 							<div class="box-header with-border">
-								<h3 class="box-title">Báo cáo tổng quan doanh số của shop</h3>
+								<h3 class="box-title">Biểu đồ doanh số của shop</h3>
 								<select id="yearSelect" style="    border: none; font-size: 17px; font-weight: 600;">
 									<%
 									for(int i = nowYear-5; i<= nowYear; i++){
@@ -154,14 +155,14 @@
 							</div>
 							<!-- /.box-header -->
 							<div class="box-body">
-							<%String doanhSo = (String)request.getAttribute("doanhSo"); %>
+							<%String doanhThuCuaThang = (String)request.getAttribute("doanhThuCuaThang"); %>
 								<div class="row">
 									<div class="col-md-12">
 										<!-- <p class="text-center">
 						      				<strong>Tổng quan mua hàng của năm: 2018 so với 2017</strong>
 						      			</p> -->
 										<div class="chart">
-											<span id="dataChartLine" style="display: none;"><%=doanhSo%></span>
+											<span id="dataChartLine" style="display: none;"><%=doanhThuCuaThang%></span>
 											<div id="chartContainer" style="height: 300px; width: 100%;"></div>
 										</div>
 										<!-- /.chart-responsive -->
@@ -189,7 +190,7 @@
 										<div class="description-block border-right">
 											<span class="description-percentage text-green"><i
 												class="fa fa-caret-up"></i> 17%</span>
-											<h5 class="description-header">$35,210.43</h5>
+											<h5 class="description-header"><%=tongDoanhThuCuaNam%>.000đ</h5>
 											<span class="description-text">Tổng doanh thu</span>
 										</div>
 										<!-- /.description-block -->
@@ -199,7 +200,7 @@
 										<div class="description-block border-right">
 											<span class="description-percentage text-yellow"><i
 												class="fa fa-caret-left"></i> 0%</span>
-											<h5 class="description-header">$10,390.90</h5>
+											<h5 class="description-header">1390.000đ</h5>
 											<span class="description-text">Tổng chi phí</span>
 										</div>
 										<!-- /.description-block -->
@@ -209,7 +210,7 @@
 										<div class="description-block border-right">
 											<span class="description-percentage text-green"><i
 												class="fa fa-caret-up"></i> 20%</span>
-											<h5 class="description-header">$24,813.53</h5>
+											<h5 class="description-header">5432.000đ</h5>
 											<span class="description-text">Tổng lợi nhuận</span>
 										</div>
 										<!-- /.description-block -->
@@ -268,8 +269,11 @@
 									</div>
 									<!-- /.col -->
 									<div class="col-md-7 col-sm-7">
-										<span id="data-piechart-string" style="display: none">Hà Nội,Tp. Hồ Chí Minh,Đà Nẵng,Nghệ An,Hà tĩnh,Khu vực khác</span> <span
-											id="data-piechart-number" style="display: none">11,8,6,4,4,20</span>
+									<% 
+									String danhSach = (String)request.getAttribute("danhSach");
+									String danhSachDonHang = (String)request.getAttribute("danhSachDonHang"); %>
+										<span id="data-piechart-string" style="display: none"><%=danhSach %></span> <span
+											id="data-piechart-number" style="display: none"><%=danhSachDonHang %></span>
 										<div id="piechart" style="width: 600px; height: 360px;"></div>
 									</div>
 								</div>

@@ -227,8 +227,8 @@
           </a>
         </li>
         <li>
-          <a href="QuanTriDanhSachKhachHangServlet">
-            <i class="fa fa-users"></i> <span>Khách hàng</span>
+          <a href="QuanTriDanhSachNhaCungCapServlet">
+            <i class="fa fa-users"></i> <span>Nhà cung cấp</span>
           </a>
         </li>
         <!-- <li>

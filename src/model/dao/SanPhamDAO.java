@@ -50,19 +50,20 @@ public class SanPhamDAO {
 		return listSP;
 	}
 
-	public void themSanPhamDAO(String maSanPham, String tenSanPham, String chiTietSanPham, String giaBan, String order,
+	public void themSanPhamDAO(String maSanPham, String tenSanPham, String chiTietSanPham, String soLuong, String giaBan, String order,
 			String nhomSanPham, String fileName1) {
 		conn = ConnectDB.getConnection();
 		
 		try {
-			CallableStatement call = conn.prepareCall("{call QuanLyShopQuanAo_ThemSanPham(?,?,?,?,?,?,?)}");
+			CallableStatement call = conn.prepareCall("{call QuanLyShopQuanAo_ThemSanPham(?,?,?,?,?,?,?,?)}");
 			call.setString(1, maSanPham);
 			call.setString(2, tenSanPham);
 			call.setString(3, chiTietSanPham);
-			call.setInt(4, Integer.parseInt(giaBan));
-			call.setInt(5, Integer.parseInt(order));
-			call.setString(6, nhomSanPham);
-			call.setString(7, fileName1);
+			call.setInt(4, Integer.parseInt(soLuong));
+			call.setInt(5, Integer.parseInt(giaBan));
+			call.setInt(6, Integer.parseInt(order));
+			call.setString(7, nhomSanPham);
+			call.setString(8, fileName1);
 			call.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -432,5 +433,34 @@ public class SanPhamDAO {
 			e.printStackTrace();
 		}
 		return sp;
+	}
+
+	public void updateSanPhamBo(String maSanPham, String tenSanPham, String chiTietSanPham, String giaCu, String giaBan,
+			String order, String nhomSanPham, String fileName2) {
+		// TODO Auto-generated method stub
+		conn = ConnectDB.getConnection();
+		
+		try {
+			CallableStatement call = conn.prepareCall("{call QuanLyShopQuanAo_SuaThongTinSanPham(?,?,?,?,?,?,?,?)}");
+			call.setString(1, maSanPham);
+			call.setString(2, tenSanPham);
+			call.setString(3, chiTietSanPham);
+			call.setInt(4, Integer.parseInt(giaCu));
+			call.setInt(5, Integer.parseInt(giaBan));
+			call.setInt(6, Integer.parseInt(order));
+			call.setString(7, nhomSanPham);
+			call.setString(8, fileName2);
+			call.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 	}
 }

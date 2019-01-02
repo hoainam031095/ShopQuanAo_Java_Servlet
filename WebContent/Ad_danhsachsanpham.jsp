@@ -91,13 +91,17 @@
 											<td class="col-md-5 col-sm-5"><%=sp.getChiTietSanPham() %></td>
 											<td class="col-md-1 col-sm-1"><%=sp.getGia()%>$</td>
 											<td class="col-md-1 col-sm-1"><%=sp.getGiaMoi()%>$</td>
-											<td class="col-md-1 col-sm-1"><%=sp.getSoLuong()%></td>
-											<td class="col-md-1 col-sm-1" style="text-align: center;">
-												<a href="QuanTriChinhSuaSanPhamServlet?maSP=<%=sp.getMaSanPham()%>" style="padding: 0px 5px; font-size: 16px;">
+											<td class=""><%=sp.getSoLuong()%></td>
+											<td class="col-md-2 col-sm-2" style="text-align: center;">
+												<a href="QuanTriNhapThemSanPhamServlet?maSP=<%=sp.getMaSanPham()%>" style="padding: 0px 5px; font-size: 16px; color: #00805ee0">
+													<i class="fa fa-plus" aria-hidden="true"></i>
+												</a>
+												<a href="QuanTriSuaSanPhamServlet?maSP=<%=sp.getMaSanPham()%>" style="padding: 0px 5px; font-size: 16px;">
 													<i class="fa fa-pencil"></i>
-											</a> <a href="QuanTriXoaSanPhamServlet?maSP=<%=sp.getMaSanPham()%>"
-												style="padding: 0px 5px; font-size: 17px; color: red;"><i
-													class="fa fa-trash-o"></i></a>
+												</a> 
+											<a href="QuanTriXoaSanPhamServlet?maSP=<%=sp.getMaSanPham()%>" style="padding: 0px 5px; font-size: 17px; color: red;">
+												<i class="fa fa-trash-o"></i>
+											</a>	
 											</td>
 										</tr>
 										<%

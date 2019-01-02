@@ -46,7 +46,6 @@ public class DoTuoiDAO {
 	public void themLienKetGiuaSanPhamVaSize(String maSanPham, String nhomDoTuoi) {
 		String [] maDoTuoi = nhomDoTuoi.split(" ");
 		for(int i = 0; i < maDoTuoi.length; i++) {
-			System.out.println(maDoTuoi[i]+"/");
 			conn = ConnectDB.getConnection();
 			String sql = String.format("insert into tblSanPhamDoTuoi(MaSP,IDNhomTuoi) values('%s','%s')", maSanPham, maDoTuoi[i]);
 			try {
@@ -132,6 +131,25 @@ public class DoTuoiDAO {
 		}
 		
 		return dt;
+	}
+	public void xoaLienKetGiuaSanPhamVaSizeCu(String maSanPham) {
+		// TODO Auto-generated method stub
+		conn = ConnectDB.getConnection();
+		try {
+			CallableStatement call = conn.prepareCall("{call QuanLyShopQuanAo_XoaLienKetDoTuoiVaSanPham(?)}");
+			call.setString(1, maSanPham);
+			call.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 	}
 
 }

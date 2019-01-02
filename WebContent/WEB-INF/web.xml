@@ -309,4 +309,24 @@
     <servlet-name>NguoiDungChiTietHoaDonBanServlet</servlet-name>
     <url-pattern>/NguoiDungChiTietHoaDonBanServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>QuanTriDanhSachNhaCungCapServlet</display-name>
+    <servlet-name>QuanTriDanhSachNhaCungCapServlet</servlet-name>
+    <servlet-class>controller.QuanTriDanhSachNhaCungCapServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>QuanTriDanhSachNhaCungCapServlet</servlet-name>
+    <url-pattern>/QuanTriDanhSachNhaCungCapServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>QuanTriSuaSanPhamServlet</display-name>
+    <servlet-name>QuanTriSuaSanPhamServlet</servlet-name>
+    <servlet-class>controller.QuanTriSuaSanPhamServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>QuanTriSuaSanPhamServlet</servlet-name>
+    <url-pattern>/QuanTriSuaSanPhamServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

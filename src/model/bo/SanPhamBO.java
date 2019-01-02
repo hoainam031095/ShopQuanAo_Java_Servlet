@@ -15,9 +15,9 @@ public class SanPhamBO {
 		return dao.layDanhSachSanPham();
 	}
 
-	public void themSanPhamBo(String maSanPham, String tenSanPham, String chiTietSanPham, String giaBan, String order, String nhomSanPham,
+	public void themSanPhamBo(String maSanPham, String tenSanPham, String chiTietSanPham,String soLuong, String giaBan, String order, String nhomSanPham,
 			String fileName1) {
-		dao.themSanPhamDAO(maSanPham, tenSanPham, chiTietSanPham, giaBan, order, nhomSanPham, fileName1);	
+		dao.themSanPhamDAO(maSanPham, tenSanPham, chiTietSanPham,soLuong, giaBan, order, nhomSanPham, fileName1);	
 	}
 	public void xoaSanPhamTheoMa(String maSanPham) {
 		
@@ -57,6 +57,10 @@ public class SanPhamBO {
 	public ArrayList<SanPham> locDanhSachSanPhamTheogiaVaNhom(String maNhom, String doTuoi, int giaMin, int giaMax) {
 		// TODO Auto-generated method stub
 		return dao.locDanhSachSanPhamTheogiaVaNhom(maNhom, doTuoi, giaMin, giaMax);
+	}
+	public void updateSanPhamBo(String maSanPham, String tenSanPham, String chiTietSanPham,String giaCu, String giaBan, String order,
+			String nhomSanPham, String fileName2) {
+		dao.updateSanPhamBo(maSanPham, tenSanPham, chiTietSanPham, giaCu, giaBan, order,nhomSanPham, fileName2);
 	}
 
 }

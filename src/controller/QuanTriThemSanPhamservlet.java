@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -18,9 +19,13 @@ import com.sun.java.swing.plaf.windows.resources.windows;
 
 import model.dao.UpLoadFileDAO;
 import model.bean.DoTuoi;
+import model.bean.NhaCungCap;
 import model.bean.NhomSanPham;
 import model.bean.SanPham;
+import model.bo.ChiTietHoaDonNhapBO;
 import model.bo.DoTuoiBO;
+import model.bo.HoaDonNhapBO;
+import model.bo.NhaCungCapBO;
 import model.bo.NhomSanPhamBO;
 import model.bo.SanPhamBO;
 
@@ -86,10 +91,13 @@ public class QuanTriThemSanPhamservlet extends HttpServlet {
 				String maSanPham = "SP" + String.format("%05d", bo.sinhma()+1);
 				String tenSanPham = request.getParameter("tenSanPham");
 				String chiTietSanPham = request.getParameter("chiTietSanPham");
+				String soLuong = request.getParameter("soLuong");
 				String giaBan = request.getParameter("giaBan");
 				String order = request.getParameter("orDer");
 				String nhomSanPham = request.getParameter("nhomSanPham");
 				String nhomDoTuoi = "";
+				
+				//xây dựng nhóm độ tuổi phù hợp
 				if("".equals(request.getParameter("nhomDoTuoi")))
 				{
 					DoTuoiBO doTuoiBo = new DoTuoiBO();
@@ -101,12 +109,28 @@ public class QuanTriThemSanPhamservlet extends HttpServlet {
 				else
 					nhomDoTuoi = request.getParameter("nhomDoTuoi");
 				
+				//thêm sản phẩm mới
 				Part filePart = request.getPart("fileName"); // Retrieves <input type="file" name="fileName">
 			    String fileName1 = Paths.get(filePart.getSubmittedFileName()).getFileName().toString(); // MSIE fix.
-				bo.themSanPhamBo(maSanPham, tenSanPham, chiTietSanPham, giaBan, order, nhomSanPham, fileName1);
+				bo.themSanPhamBo(maSanPham, tenSanPham, chiTietSanPham, soLuong, giaBan, order, nhomSanPham, fileName1);
 				
+				//thêm liên kết vào bảng sản phẩm độ tuổi
 				DoTuoiBO dtBo = new DoTuoiBO();
 				dtBo.themLienKetGiuaSanPhamVaSize(maSanPham, nhomDoTuoi.trim());
+				
+				//thêm vào hóa đơn nhập và chi tiết hóa đơn nhập
+				HoaDonNhapBO hdnBo = new HoaDonNhapBO();
+				String maHoaDonNhap = "HD" + String.format("%05d", hdnBo.sinhma()+1);
+				String maTaiKhoan = (String)ss.getAttribute("MaTaiKhoan");
+				System.out.println(maTaiKhoan);
+				String maNhaCungCap = request.getParameter("nhaCungCap");
+				String ngayNhap = Calendar.getInstance().get(Calendar.YEAR) + "/"
+								+ Calendar.getInstance().get(Calendar.MONTH) + "/"
+								+ Calendar.getInstance().get(Calendar.DATE);
+				hdnBo.themHoaDonNhap(maHoaDonNhap,maTaiKhoan,maNhaCungCap, ngayNhap);
+				
+				ChiTietHoaDonNhapBO cthdnBo = new  ChiTietHoaDonNhapBO();
+				cthdnBo.themChiTietHoaDonNhap(maHoaDonNhap, maSanPham, Integer.parseInt(soLuong), Integer.parseInt(soLuong) * Integer.parseInt(giaBan));
 				
 				ArrayList<SanPham> listSP = bo.layDanhSachSanPham();
 				request.setAttribute("thongbao", "Thêm thành công sản phẩm");
@@ -117,9 +141,15 @@ public class QuanTriThemSanPhamservlet extends HttpServlet {
 			NhomSanPhamBO nSPbo = new NhomSanPhamBO();
 			ArrayList<NhomSanPham> listNSP = nSPbo.layDanhSachNhomSanPham();
 			request.setAttribute("listNSP", listNSP);
+			
+			NhaCungCapBO nccBo = new NhaCungCapBO();
+			ArrayList<NhaCungCap> listNCC = nccBo.layDanhSachNhaCungCap();
+			request.setAttribute("listNCC", listNCC);
+			
 			DoTuoiBO doTuoi = new DoTuoiBO();
 			ArrayList<DoTuoi> listDoTuoi = doTuoi.layDanhSachDoTuoi();
 			request.setAttribute("listDoTuoi", listDoTuoi);
+			
 			RequestDispatcher rd = request.getRequestDispatcher("Ad_themsanpham.jsp");
 			rd.forward(request, response);
 		}

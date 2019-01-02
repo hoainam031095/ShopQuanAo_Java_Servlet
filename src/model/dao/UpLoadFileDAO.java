@@ -24,7 +24,7 @@ public class UpLoadFileDAO {
 		if (!folderUpload.exists()) {
 			folderUpload.mkdirs();
 		}
-		System.out.println(folderUpload.getAbsolutePath());
+//		System.out.println(folderUpload.getAbsolutePath());
 		return folderUpload;
 	}
 }

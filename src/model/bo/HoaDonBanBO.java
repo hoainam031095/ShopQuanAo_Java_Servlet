@@ -37,4 +37,8 @@ public class HoaDonBanBO {
 		// TODO Auto-generated method stub
 		return hdbDao.laySoLuongDonHangTrongThang(nowYear, nowMonth);
 	}
+	public String layDanhSachKhuVucTieuThuNhieuCuaNam(String nowYear) {
+		// TODO Auto-generated method stub
+		return hdbDao.layDanhSachKhuVucTieuThuNhieuCuaNam(nowYear);
+	}
 }

@@ -58,16 +58,32 @@ public class QuanTriTrangChuServlet extends HttpServlet {
 			}
 			else
 			{
+//				Tổng doanh thu cua năm
 				String responseText = "";
+				int tongDoanhThuCuaNam = 0;
 				for (int i = 1; i <= nowMonth; i++) {
 					String doanhThu = cthdBo.tongDoanhThuTrongThang(nowYear+"", i+"");
 					responseText = responseText + doanhThu + ", ";
+					tongDoanhThuCuaNam = tongDoanhThuCuaNam + Integer.parseInt(doanhThu);
 				}
+				request.setAttribute("doanhThuCuaThang", responseText);
+				request.setAttribute("tongDoanhThuCuaNam", tongDoanhThuCuaNam+"");
+				
+//				Tổng số lượng khách hàng của năm
 				String soLuongKhachHang = hdbBo.laySoLuongKhachHangTrongThang(nowYear+"", nowMonth+"");
 				request.setAttribute("soLuongKhachHang", soLuongKhachHang);
+				
+//				Tổng số lượng đơn hàng của năm
 				String soLuongDonHang = hdbBo.laySoLuongDonHangTrongThang(nowYear+"", nowMonth+"");
 				request.setAttribute("soLuongDonHang", soLuongDonHang);
-				request.setAttribute("doanhSo", responseText);
+				
+//				Danh sách khu vực tiêu thụ nhiều
+				String khuVucTieuThuNhieu = hdbBo.layDanhSachKhuVucTieuThuNhieuCuaNam(nowYear+"");
+				String danhSach = khuVucTieuThuNhieu.split("/")[0];
+				String danhSachDonHang = khuVucTieuThuNhieu.split("/")[1];
+				request.setAttribute("danhSach", danhSach);
+				request.setAttribute("danhSachDonHang", danhSachDonHang);
+				
 				RequestDispatcher rd = request.getRequestDispatcher("Ad_index.jsp");
 				rd.forward(request, response);
 			}

@@ -24,6 +24,10 @@ public class DoTuoiBO {
 		// TODO Auto-generated method stub
 		return dao.layThongTinDoTuoiTheoMaDoTuoi(selectedMaDoTuoi);
 	}
+	public void xoaLienKetGiuaSanPhamVaSizeCu(String maSanPham) {
+		// TODO Auto-generated method stub
+		dao.xoaLienKetGiuaSanPhamVaSizeCu(maSanPham);
+	}
 	
 
 }

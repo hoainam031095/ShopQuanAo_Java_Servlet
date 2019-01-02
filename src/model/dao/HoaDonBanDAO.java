@@ -4,6 +4,7 @@ import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import model.bean.ChiTietHoaDonBan;
@@ -169,7 +170,7 @@ public class HoaDonBanDAO {
 			call.setString(2, nowMonth);
 			rs = call.executeQuery();
 			if(rs.next()) {
-				soLuongDonHang = (rs.getInt("soluongdonhang")) + "";
+				soLuongDonHang = rs.getInt("soluongdonhang") + "";
 			}
 			return soLuongDonHang;
 		} catch (SQLException e) {
@@ -185,6 +186,41 @@ public class HoaDonBanDAO {
 			}
 		}
 		return soLuongDonHang;
+	}
+
+	public String layDanhSachKhuVucTieuThuNhieuCuaNam(String nowYear) {
+		// TODO Auto-generated method stub
+		conn = ConnectDB.getConnection();
+		rs = null;
+		String danhSach = "";
+		String danhSachDonHang ="";
+		double tong = 0;
+		try {
+			CallableStatement call = conn.prepareCall("{call QuanLyShopQuanAo_TopKhuVucTieuThuNhieuNhatCuaThang(?)}");
+			call.setString(1, nowYear);
+			rs = call.executeQuery();
+			while(rs.next()) {
+				danhSach = danhSach +  rs.getString("TenTinh") + ", ";
+				danhSachDonHang = danhSachDonHang +  (rs.getInt("sodonhang"))/10.0 + ", ";
+				tong = tong + (rs.getInt("sodonhang"))/10.0;
+			}
+			danhSach += "Khu vực khác";
+			danhSachDonHang += Math.round((100-tong)*10)/10.0;
+			
+			return danhSach + "/" + danhSachDonHang;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			try {
+				conn.close();
+				rs.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return danhSach + "/" + danhSachDonHang;
 	}
 
 }

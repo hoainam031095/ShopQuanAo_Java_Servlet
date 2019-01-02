@@ -1,3 +1,4 @@
+<%@page import="model.bean.NhaCungCap"%>
 <%@page import="Common.StringProcess"%>
 <%@page import="model.bean.DoTuoi"%>
 <%@page import="model.bean.NhomSanPham"%>
@@ -71,6 +72,10 @@
                 <div>
 	                <div class="col-sm-5" style="padding-left: 0px;">
 		                <div class="form-group"">
+			                  <label for="inputSoLuong">Số lượng:</label>
+			                  <input type="number" id="inputSoLuong" class="form-control" name="soLuong" placeholder="VD: 1">
+		                </div>
+		                <div class="form-group"">
 		                  <label for="inputGiaBan">Giá bán:</label>
 		                  <input type="text" id="inputGiaBan" class="form-control" name="giaBan" placeholder="VD: 400">
 		                </div>
@@ -82,12 +87,23 @@
 		                  <label for="selectNhomSanPham">Nhóm sản phẩm:</label>
 		                 <select id="selectNhomSanPham" class="form-control select2" name="nhomSanPham">
 		                    <% ArrayList<NhomSanPham> listNSP = (ArrayList<NhomSanPham>)request.getAttribute("listNSP");
-		                    	int i = 0;
 		                    	for(NhomSanPham nsp : listNSP)
 		                    	{
 		                    %>
 				                    
 				                    <option value="<%=nsp.getMaNhomSP()%>"><%=nsp.getTenNhomSP()%></option>
+				                <%}%>
+		                  </select>
+		                </div>
+		                <div class="form-group"">
+		                  <label for="selectNhaCungCap">Nhà cung cấp:</label>
+		                 <select id="selectNhaCungCap" class="form-control select2" name="nhaCungCap">
+		                    <% ArrayList<NhaCungCap> listNCC = (ArrayList<NhaCungCap>)request.getAttribute("listNCC");
+		                    	for(NhaCungCap ncc : listNCC)
+		                    	{
+		                    %>
+				                    
+				                    <option value="<%=ncc.getMaNhaCungCap()%>"><%=ncc.getTenNhaCungCap()%></option>
 				                <%}%>
 		                  </select>
 		                </div>
