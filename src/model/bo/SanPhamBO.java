@@ -30,6 +30,9 @@ public class SanPhamBO {
 	public ArrayList<SanPham> layDanhSachSanPhamBanChay() {
 		return dao.layDanhSachSanPhamBanChay();
 	}
+	public ArrayList<SanPham> layDanhSachSanPhamBanChayQuanTri() {
+		return dao.layDanhSachSanPhamBanChayQuanTri();
+	}
 	public ArrayList<SanPham> layDanhSachSanPhamTheonhom(int soluong, String nhom) {
 		// TODO Auto-generated method stub
 		return dao.layDanhSachSanPhamTheoNhom(soluong, nhom);

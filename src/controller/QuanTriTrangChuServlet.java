@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Calendar;
 
 import javax.servlet.RequestDispatcher;
@@ -10,8 +11,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.bean.SanPham;
 import model.bo.ChiTietHoaDonBO;
 import model.bo.HoaDonBanBO;
+import model.bo.SanPhamBO;
 import model.dao.ConnectDB;
 
 /**
@@ -83,6 +86,13 @@ public class QuanTriTrangChuServlet extends HttpServlet {
 				String danhSachDonHang = khuVucTieuThuNhieu.split("/")[1];
 				request.setAttribute("danhSach", danhSach);
 				request.setAttribute("danhSachDonHang", danhSachDonHang);
+				
+//				Danh sách nhóm sản phẩm tiêu thụ nhiều
+				SanPhamBO sanphambo = new SanPhamBO();
+				ArrayList<SanPham> listSPbanchayQuanTri = sanphambo.layDanhSachSanPhamBanChayQuanTri();
+				request.setAttribute("listSPbanchayQuanTri", listSPbanchayQuanTri);
+				
+//				Danh sách sản phẩm tiêu thụ nhiều
 				
 				RequestDispatcher rd = request.getRequestDispatcher("Ad_index.jsp");
 				rd.forward(request, response);

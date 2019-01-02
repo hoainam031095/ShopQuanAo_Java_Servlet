@@ -82,5 +82,32 @@ public class ChiTietHoaDonDAO {
 		}
 		return doanhThu;
 	}
+	public String soLuongBanCuaSanPhamTheoMa(String maSanPham) {
+		// TODO Auto-generated method stub
+		conn = ConnectDB.getConnection();
+		rs = null;
+		String tongSoLuong = "";
+		try {
+			CallableStatement call = conn.prepareCall("{call QuanLyShopQuanAo_LaySoLuongBanDuocTheoMaSanPham(?)}");
+			call.setString(1, maSanPham);
+			rs = call.executeQuery();
+			if(rs.next()) {
+				tongSoLuong = (rs.getInt("soLuongBanDuoc")) + "";
+			}
+			return tongSoLuong;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			try {
+				conn.close();
+				rs.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return tongSoLuong;
+	}
 
 }

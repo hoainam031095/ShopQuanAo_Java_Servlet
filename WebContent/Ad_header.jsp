@@ -236,19 +236,20 @@
             <i class="fa fa-bar-chart"></i> <span>Doanh số</span>
           </a>
         </li> -->
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-usd" aria-hidden="true"></i> <span>Lợi nhuận</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="pages/tables/simple.html"><i class="fa fa-line-chart"></i> Thống kê</a></li>
-            <li><a href="pages/tables/simple.html"><i class="fa fa-circle-o"></i> Chi</a></li>
-            <li><a href="pages/tables/simple.html"><i class="fa fa-circle-o"></i> Thu</a></li>
-          </ul>
-        </li>
+        <% if(ss.getAttribute("Quyen").equals("1")){%>
+	        <li class="treeview">
+	          <a href="#">
+	            <i class="fa fa-usd" aria-hidden="true"></i> <span>Lợi nhuận</span>
+	            <span class="pull-right-container">
+	              <i class="fa fa-angle-left pull-right"></i>
+	            </span>
+	          </a>
+	          <ul class="treeview-menu">
+	            <li><a href="pages/tables/simple.html"><i class="fa fa-line-chart"></i> Thống kê</a></li>
+	            <li><a href="pages/tables/simple.html"><i class="fa fa-circle-o"></i> Chi</a></li>
+	            <li><a href="pages/tables/simple.html"><i class="fa fa-circle-o"></i> Thu</a></li>
+	          </ul>
+	        </li>
         <li class="treeview">
           <a href="#">
             <i class="fa fa-user"></i> <span>Người dùng</span>
@@ -261,6 +262,8 @@
             <li><a href="pages/tables/simple.html"><i class="fa fa-address-book"></i> Danh sách</a></li>
           </ul>
         </li>
+        <%}else{ %>
+	        <%} %>
         <li>
           <a href="pages/calendar.html">
             <i class="fa fa-calendar"></i> <span>Công việc</span>

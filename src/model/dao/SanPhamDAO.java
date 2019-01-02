@@ -137,6 +137,43 @@ public class SanPhamDAO {
 		}
 		return listSPbanchay;
 	}
+	public ArrayList<SanPham> layDanhSachSanPhamBanChayQuanTri() {
+		// TODO Auto-generated method stub
+		ArrayList<SanPham> listSPbanchay = new ArrayList<>();
+		conn = ConnectDB.getConnection();
+		rs = null;
+		try {
+			CallableStatement call = conn.prepareCall("{call QuanLyShopQuanAo_LayDanhSachSanPhamBanChayQuanTri}");
+			rs = call.executeQuery();
+			while(rs.next()) {
+				SanPham sp = new SanPham();
+				sp.setMaSanPham(rs.getString("MaSP"));
+				sp.setTenSanPham(rs.getString("Name"));
+				sp.setChiTietSanPham(rs.getString("ChiTiet"));
+				sp.setGia(rs.getInt("Gia"));
+				sp.setGiaMoi(rs.getInt("GiaMoi"));
+				sp.setImages(rs.getString("NameImage"));
+				sp.setSoLuong(rs.getInt("SoLuong"));
+				sp.setOrder(rs.getInt("OrderTT"));
+				sp.setStatus(rs.getInt("Status"));
+				sp.setMaNhomSanPham(rs.getString("IDNhomSP"));
+				listSPbanchay.add(sp);
+			}
+			return listSPbanchay;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			try {
+				conn.close();
+				rs.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return listSPbanchay;
+	}
 
 	public ArrayList<SanPham> layDanhSachSanPhamTheoNhom(int soluong, String nhom) {
 		// TODO Auto-generated method stub

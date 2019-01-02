@@ -1,3 +1,7 @@
+<%@page import="model.bo.ChiTietHoaDonBO"%>
+<%@page import="model.bo.SanPhamBO"%>
+<%@page import="model.bean.SanPham"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="java.util.Calendar"%>
 <%@page import="java.time.LocalDate"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -47,6 +51,7 @@
 			<!-- Main content -->
 			<section class="content">
 				<!-- Info boxes -->
+			<% if(ss.getAttribute("Quyen").equals("1")){%>
 				<div class="row">
 					<div class="col-md-3 col-sm-6 col-xs-12">
 						<div class="info-box">
@@ -235,7 +240,9 @@
 					<!-- /.col -->
 				</div>
 				<!-- /.row -->
-
+				<%}else{ %>
+					<!-- Không hiện thị gì -->
+	        	<%} %>
 				<!-- Main row -->
 				<div class="row">
 					<!-- Left col -->
@@ -475,82 +482,28 @@
 												<th>STT</th>
 												<th>ID</th>
 												<th>Tên sản phẩm</th>
-												<th>Giá</th>
 												<th>Số lượng</th>
 											</tr>
 										</thead>
 										<tbody>
+										<% ChiTietHoaDonBO cthdbBo = new ChiTietHoaDonBO();
+										ArrayList<SanPham> listSPbanchayQuanTri = (ArrayList<SanPham>)request.getAttribute("listSPbanchayQuanTri");
+										int i = 1;
+										for(SanPham sp: listSPbanchayQuanTri)
+										{
+											String soluongBanDuoc = cthdbBo.soLuongBanCuaSanPhamTheoMa(sp.getMaSanPham());
+										%>
 											<tr>
-												<td>1</td>
-												<td><a href="pages/examples/invoice.html">NH00001</a></td>
-												<td class="col-md-6">Áo sơ mi bé trai 1-6 tuổi sọc caro
-													tay dài cá tính</td>
-												<td>400 $</td>
+												<td><%=i%></td>
+												<td><a href="pages/examples/invoice.html"><%=sp.getMaSanPham() %></a></td>
+												<td class="col-md-6"><%=sp.getTenSanPham() %></td>
 												<td>
-													<div class="sparkbar" data-color="#00a65a" data-height="20">200</div>
+													<div class="sparkbar" data-color="#00a65a" data-height="20"><%=soluongBanDuoc %></div>
 												</td>
 											</tr>
-											<tr>
-												<td>1</td>
-												<td><a href="pages/examples/invoice.html">NH00001</a></td>
-												<td class="col-md-6">Áo sơ mi bé trai 1-6 tuổi sọc caro
-													tay dài cá tính</td>
-												<td>400 $</td>
-												<td>
-													<div class="sparkbar" data-color="#00a65a" data-height="20">200</div>
-												</td>
-											</tr>
-											<tr>
-												<td>1</td>
-												<td><a href="pages/examples/invoice.html">NH00001</a></td>
-												<td class="col-md-6">Áo sơ mi bé trai 1-6 tuổi sọc caro
-													tay dài cá tính</td>
-												<td>400 $</td>
-												<td>
-													<div class="sparkbar" data-color="#00a65a" data-height="20">200</div>
-												</td>
-											</tr>
-											<tr>
-												<td>1</td>
-												<td><a href="pages/examples/invoice.html">NH00001</a></td>
-												<td class="col-md-6">Áo sơ mi bé trai 1-6 tuổi sọc caro
-													tay dài cá tính</td>
-												<td>400 $</td>
-												<td>
-													<div class="sparkbar" data-color="#00a65a" data-height="20">200</div>
-												</td>
-											</tr>
-											<tr>
-												<td>1</td>
-												<td><a href="pages/examples/invoice.html">NH00001</a></td>
-												<td class="col-md-6">Áo sơ mi bé trai 1-6 tuổi sọc caro
-													tay dài cá tính</td>
-												<td>400 $</td>
-												<td>
-													<div class="sparkbar" data-color="#00a65a" data-height="20">200</div>
-												</td>
-											</tr>
-											<tr>
-												<td>1</td>
-												<td><a href="pages/examples/invoice.html">NH00001</a></td>
-												<td class="col-md-6">Áo sơ mi bé trai 1-6 tuổi sọc caro
-													tay dài cá tính</td>
-												<td>400 $</td>
-												<td>
-													<div class="sparkbar" data-color="#00a65a" data-height="20">200</div>
-												</td>
-											</tr>
-											<tr>
-												<td>1</td>
-												<td><a href="pages/examples/invoice.html">NH00001</a></td>
-												<td class="col-md-6">Áo sơ mi bé trai 1-6 tuổi sọc caro
-													tay dài cá tính</td>
-												<td>400 $</td>
-												<td>
-													<div class="sparkbar" data-color="#00a65a" data-height="20">200</div>
-												</td>
-											</tr>
-
+										<%
+										i++;
+										} %>
 										</tbody>
 									</table>
 								</div>
