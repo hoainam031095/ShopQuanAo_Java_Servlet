@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import model.bean.NhomSanPham;
+import model.bean.SanPham;
 
 public class NhomSanPhamDAO {
 	static Connection conn;
@@ -167,6 +168,43 @@ public class NhomSanPhamDAO {
 			}
 		}
 		return nsp;
+	}
+
+	public ArrayList<NhomSanPham> layDanhSachNhomSanPhamBanChayQuanTri() {
+		// TODO Auto-generated method stub
+		conn = ConnectDB.getConnection();
+		listNSP = new ArrayList<>();
+		CallableStatement call;
+		try {
+			call = conn.prepareCall("{call QuanLyShopQuanAo_LayDanhSachNhomSanPhamBanChayQuanTri}");
+			rs = call.executeQuery();
+			while(rs.next()) {
+				NhomSanPham nsp = new NhomSanPham();
+				nsp.setMaNhomSP(rs.getString("MaNhomSP"));
+				nsp.setTenNhomSP(rs.getString("Name"));
+				nsp.setContent(rs.getString("Content"));
+				nsp.setImages(rs.getString("NameImage"));
+				nsp.setOrder(rs.getInt("OrderTT"));
+				nsp.setStatus(rs.getInt("Status"));
+				nsp.setLink(rs.getString("Link"));
+				nsp.setMaMainMenu(rs.getString("MainMenuID"));
+				listNSP.add(nsp);
+			}
+			return listNSP;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		finally {
+			try {
+				conn.close();
+				rs.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return listNSP;
 	}
 
 }

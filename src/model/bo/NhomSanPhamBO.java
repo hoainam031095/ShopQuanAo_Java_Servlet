@@ -3,6 +3,7 @@ package model.bo;
 import java.util.ArrayList;
 
 import model.bean.NhomSanPham;
+import model.bean.SanPham;
 import model.dao.ConnectDB;
 import model.dao.NhomSanPhamDAO;
 
@@ -35,6 +36,11 @@ public class NhomSanPhamBO {
 	public NhomSanPham layThongTinNhomSP(String maNSP) {
 		// TODO Auto-generated method stub
 		return dao.layThongTinNhomSP(maNSP);
+	}
+
+	public ArrayList<NhomSanPham> layDanhSachNhomSanPhamBanChayQuanTri() {
+		// TODO Auto-generated method stub
+		return dao.layDanhSachNhomSanPhamBanChayQuanTri() ;
 	}
 
 }

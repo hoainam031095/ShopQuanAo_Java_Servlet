@@ -1,3 +1,4 @@
+<%@page import="model.bean.NhomSanPham"%>
 <%@page import="model.bo.ChiTietHoaDonBO"%>
 <%@page import="model.bo.SanPhamBO"%>
 <%@page import="model.bean.SanPham"%>
@@ -295,7 +296,7 @@
 					<div class="col-md-6 col-sm-6">
 						<div class="box box-info">
 							<div class="box-header with-border">
-								<h3 class="box-title">Nhóm sản phẩm được tiêu thụ nhiều</h3>
+								<h3 class="box-title">Top nhóm sản phẩm được tiêu thụ nhiều</h3>
 
 								<div class="box-tools pull-right">
 									<button type="button" class="btn btn-box-tool"
@@ -321,62 +322,23 @@
 											</tr>
 										</thead>
 										<tbody>
+										<% ChiTietHoaDonBO cthdbBo = new ChiTietHoaDonBO();
+										ArrayList<NhomSanPham> listNhomSPbanchayQuanTri = (ArrayList<NhomSanPham>)request.getAttribute("listNhomSPbanchayQuanTri");
+										int i = 1;
+										for(NhomSanPham nsp: listNhomSPbanchayQuanTri)
+										{
+											String soluongBanDuocTheoNhom = cthdbBo.soLuongBanCuaNhomSanPhamTheoMa(nsp.getMaNhomSP());
+										%>
 											<tr>
-												<td>1</td>
-												<td><a href="pages/examples/invoice.html">NH00001</a></td>
-												<td class="col-md-6">Áo sơ mi bé trai</td>
+												<td><%=i%></td>
+												<td><a href="pages/examples/invoice.html"><%=nsp.getMaNhomSP()%></a></td>
+												<td class="col-md-6"><%=nsp.getTenNhomSP() %></td>
 												<td>
-													<div class="sparkbar" data-color="#00a65a" data-height="20">200</div>
+													<div class="sparkbar" data-color="#00a65a" data-height="20"><%=soluongBanDuocTheoNhom%></div>
 												</td>
 											</tr>
-											<tr>
-												<td>2</td>
-												<td><a href="pages/examples/invoice.html">NH00002</a></td>
-												<td class="col-md-6">Áo sơ mi bé trai</td>
-												<td>
-													<div class="sparkbar" data-color="#00a65a" data-height="20">200</div>
-												</td>
-											</tr>
-											<tr>
-												<td>3</td>
-												<td><a href="pages/examples/invoice.html">NH00003</a></td>
-												<td class="col-md-6">Áo sơ mi bé trai</td>
-												<td>
-													<div class="sparkbar" data-color="#00a65a" data-height="20">200</div>
-												</td>
-											</tr>
-											<tr>
-												<td>4</td>
-												<td><a href="pages/examples/invoice.html">NH00004</a></td>
-												<td class="col-md-6">Áo sơ mi bé trai</td>
-												<td>
-													<div class="sparkbar" data-color="#00a65a" data-height="20">200</div>
-												</td>
-											</tr>
-											<tr>
-												<td>5</td>
-												<td><a href="pages/examples/invoice.html">NH00005</a></td>
-												<td class="col-md-6">Áo sơ mi bé trai</td>
-												<td>
-													<div class="sparkbar" data-color="#00a65a" data-height="20">200</div>
-												</td>
-											</tr>
-											<tr>
-												<td>6</td>
-												<td><a href="pages/examples/invoice.html">NH00006</a></td>
-												<td class="col-md-6">Áo sơ mi bé trai</td>
-												<td>
-													<div class="sparkbar" data-color="#00a65a" data-height="20">200</div>
-												</td>
-											</tr>
-											<tr>
-												<td>7</td>
-												<td><a href="pages/examples/invoice.html">NH00007</a></td>
-												<td class="col-md-6">Áo sơ mi bé trai</td>
-												<td>
-													<div class="sparkbar" data-color="#00a65a" data-height="20">200</div>
-												</td>
-											</tr>
+											<%i++;
+											}%>
 										</tbody>
 									</table>
 								</div>
@@ -486,15 +448,15 @@
 											</tr>
 										</thead>
 										<tbody>
-										<% ChiTietHoaDonBO cthdbBo = new ChiTietHoaDonBO();
+										<%
 										ArrayList<SanPham> listSPbanchayQuanTri = (ArrayList<SanPham>)request.getAttribute("listSPbanchayQuanTri");
-										int i = 1;
+										int j = 1;
 										for(SanPham sp: listSPbanchayQuanTri)
 										{
 											String soluongBanDuoc = cthdbBo.soLuongBanCuaSanPhamTheoMa(sp.getMaSanPham());
 										%>
 											<tr>
-												<td><%=i%></td>
+												<td><%=j%></td>
 												<td><a href="pages/examples/invoice.html"><%=sp.getMaSanPham() %></a></td>
 												<td class="col-md-6"><%=sp.getTenSanPham() %></td>
 												<td>
@@ -502,7 +464,7 @@
 												</td>
 											</tr>
 										<%
-										i++;
+										j++;
 										} %>
 										</tbody>
 									</table>

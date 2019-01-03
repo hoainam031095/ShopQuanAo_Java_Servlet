@@ -65,5 +65,9 @@ public class SanPhamBO {
 			String nhomSanPham, String fileName2) {
 		dao.updateSanPhamBo(maSanPham, tenSanPham, chiTietSanPham, giaCu, giaBan, order,nhomSanPham, fileName2);
 	}
+	public void nhapThemSanPhamBo(String maSanPham, String soLuong) {
+		// TODO Auto-generated method stub
+		dao.updateSanPhamBo(maSanPham, soLuong);
+	}
 
 }

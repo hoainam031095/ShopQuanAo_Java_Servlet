@@ -149,8 +149,10 @@
 						<table>
 							<tr>
 								<td class="muc">Hình thức thanh toán:</td>
-								<td>Thanh toán khi nhận hàng</td>
-							</tr>
+								<td>
+									<input class="radio" type="radio" name="hinhthucthanhtoan" value="offline" checked="checked"> Thanh toán khi nhận hàng &nbsp &nbsp &nbsp 
+									<input class="radio" type="radio" name="hinhthucthanhtoan" value="online"> Thanh toán trực tuyến<br></td>
+								</tr>
 							<tr>
 								<td class="muc">Phương pháp vận chuyển:</td>
 								<td>Giao hàng tận nơi</td>
@@ -184,5 +186,11 @@
 		</div>
 	</div>
 </div>
-
+<script type="text/javascript">
+	$(document).ready(function() {
+		window.onload = function() {
+        	resuftCheckBox();
+		};
+	});
+</script>
 <%@include file="Us_footer.jsp"%>

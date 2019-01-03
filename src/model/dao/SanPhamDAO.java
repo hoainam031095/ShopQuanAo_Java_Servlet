@@ -500,4 +500,26 @@ public class SanPhamDAO {
 			}
 		}
 	}
+
+	public void updateSanPhamBo(String maSanPham, String soLuong) {
+		// TODO Auto-generated method stub
+		conn = ConnectDB.getConnection();
+		
+		try {
+			CallableStatement call = conn.prepareCall("{call QuanLyShopQuanAo_NhapThemSanPham(?,?)}");
+			call.setString(1, maSanPham);
+			call.setString(2, soLuong);
+			call.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
 }

@@ -124,9 +124,7 @@ public class QuanTriThemSanPhamservlet extends HttpServlet {
 				String maTaiKhoan = (String)ss.getAttribute("MaTaiKhoan");
 				System.out.println(maTaiKhoan);
 				String maNhaCungCap = request.getParameter("nhaCungCap");
-				String ngayNhap = Calendar.getInstance().get(Calendar.YEAR) + "/"
-								+ Calendar.getInstance().get(Calendar.MONTH) + "/"
-								+ Calendar.getInstance().get(Calendar.DATE);
+				String ngayNhap = java.time.LocalDate.now() + "";
 				hdnBo.themHoaDonNhap(maHoaDonNhap,maTaiKhoan,maNhaCungCap, ngayNhap);
 				
 				ChiTietHoaDonNhapBO cthdnBo = new  ChiTietHoaDonNhapBO();

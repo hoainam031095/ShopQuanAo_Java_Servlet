@@ -329,4 +329,14 @@
     <servlet-name>QuanTriSuaSanPhamServlet</servlet-name>
     <url-pattern>/QuanTriSuaSanPhamServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>QuanTriNhapThemSanPhamServlet</display-name>
+    <servlet-name>QuanTriNhapThemSanPhamServlet</servlet-name>
+    <servlet-class>controller.QuanTriNhapThemSanPhamServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>QuanTriNhapThemSanPhamServlet</servlet-name>
+    <url-pattern>/QuanTriNhapThemSanPhamServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

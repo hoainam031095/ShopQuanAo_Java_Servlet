@@ -82,7 +82,7 @@
 	color:#fff;
 }
 
-.popup-inner input, .popup-inner select {
+.popup-inner input.check-input {
 	width: 93%;
 	height: 28px;
 	padding-left: 15px;
@@ -91,6 +91,16 @@
 	border-left: 0px;
 	border: 1px solid #ccc;
 }
+.popup-inner select {
+	width: 93%;
+	height: 28px;
+	padding-left: 15px;
+	border-radius: 3px;
+	border-top: 0px;
+	border-left: 0px;
+	border: 1px solid #ccc;
+}
+
 .popup-inner .styleDisabled{
 	background-color: #2a2d2f3d !important;
 }

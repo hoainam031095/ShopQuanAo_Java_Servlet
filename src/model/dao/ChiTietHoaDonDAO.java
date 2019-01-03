@@ -109,5 +109,32 @@ public class ChiTietHoaDonDAO {
 		}
 		return tongSoLuong;
 	}
+	public String soLuongBanCuaNhomSanPhamTheoMa(String maNhomSanPham) {
+		// TODO Auto-generated method stub
+		conn = ConnectDB.getConnection();
+		rs = null;
+		String soLuongBanDuocTheoNhom = "";
+		try {
+			CallableStatement call = conn.prepareCall("{call QuanLyShopQuanAo_LaySoLuongNhomSanPhamBanChayQuanTri(?)}");
+			call.setString(1, maNhomSanPham);
+			rs = call.executeQuery();
+			if(rs.next()) {
+				soLuongBanDuocTheoNhom = (rs.getInt("soLuongBanDuocTheoNhom")) + "";
+			}
+			return soLuongBanDuocTheoNhom;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			try {
+				conn.close();
+				rs.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return soLuongBanDuocTheoNhom;
+	}
 
 }

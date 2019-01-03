@@ -20,5 +20,8 @@ public class ChiTietHoaDonBO {
 	public String soLuongBanCuaSanPhamTheoMa(String maSanPham) {
 		return cthdDao.soLuongBanCuaSanPhamTheoMa(maSanPham);
 	}
+	public String soLuongBanCuaNhomSanPhamTheoMa(String maNhomSanPham) {
+		return cthdDao.soLuongBanCuaNhomSanPhamTheoMa(maNhomSanPham);
+	}
 	
 }

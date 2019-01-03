@@ -209,7 +209,7 @@
 		            	}
 		                window.onload = function() {
 		                	resuftCheckBox();
-						}
+						};
 		            	$('#table-input-checkbox input').on('click',function(){
 		            		resuftCheckBox();
 		            	});

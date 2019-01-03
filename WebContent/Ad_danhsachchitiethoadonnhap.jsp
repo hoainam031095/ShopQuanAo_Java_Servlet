@@ -75,9 +75,9 @@
                     <td class="col-md-1 col-sm-1"><a href="#"><%=cthdn.getMaHoaDon()%></a></td>
                     <td class = "col-md-2 col-sm-2" ><%=cthdn.getTenTaiKhoan()%></td>
                     <td class = "col-md-2 col-sm-2" ><%=cthdn.getTenNhaCungCap()%></td>
-                    <td class = "col-md-1 col-sm-1" ><%=cthdn.getNgayNhap()%></td>
+                    <td class = "col-md-2 col-sm-2" ><%=cthdn.getNgayNhap()%></td>
                     <td class="col-md-3 col-sm-3"><%=cthdn.getTenSanPham()%></td>
-                    <td class="col-md-1 col-sm-1"><%=cthdn.getSoLuong() %></td>
+                    <td class=""><%=cthdn.getSoLuong() %></td>
                     <td class="col-md-1 col-sm-1"><%=cthdn.getDonGia() %>$</td>
                     <td class="col-md-1 col-sm-1" style="text-align: center;">
                       <a href="ChinhSuaDanhSachChiTietHoaDonServlet?maHD=<%=cthdn.getMaHoaDon()%>" style="padding: 0px 5px; font-size: 16px;"> <i class="fa fa-pencil"></i></a>

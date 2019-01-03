@@ -69,7 +69,7 @@
 													<p>
 														Địa chỉ cụ thể: <span id="them-error-diachicuthe"></span>
 													</p>
-													<input type="text" id="them-diachi-cuthe" class="check-input phone" name="diachicuthe">
+													<input type="text" id="them-diachi-cuthe" class="check-input phone" name="diachicuthe" style="margin-bottom: 15px;">
 													<p>
 														<button type="submit" class="ty-btn ty-xacnhan validate">Tiếp theo</button>
 														<button class="ty-btn ty-btn__primary" data-popup-close="popup-2">Hủy</button>

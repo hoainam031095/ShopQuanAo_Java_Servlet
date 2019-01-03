@@ -11,9 +11,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.bean.ChiTietHoaDonBan;
+import model.bean.NhomSanPham;
 import model.bean.SanPham;
 import model.bo.ChiTietHoaDonBO;
 import model.bo.HoaDonBanBO;
+import model.bo.NhomSanPhamBO;
 import model.bo.SanPhamBO;
 import model.dao.ConnectDB;
 
@@ -88,11 +91,14 @@ public class QuanTriTrangChuServlet extends HttpServlet {
 				request.setAttribute("danhSachDonHang", danhSachDonHang);
 				
 //				Danh sách nhóm sản phẩm tiêu thụ nhiều
+				NhomSanPhamBO nspBo = new NhomSanPhamBO();
+				ArrayList<NhomSanPham> listNhomSPbanchayQuanTri = nspBo.layDanhSachNhomSanPhamBanChayQuanTri();
+				request.setAttribute("listNhomSPbanchayQuanTri", listNhomSPbanchayQuanTri);
+				
+//				Danh sách sản phẩm tiêu thụ nhiều
 				SanPhamBO sanphambo = new SanPhamBO();
 				ArrayList<SanPham> listSPbanchayQuanTri = sanphambo.layDanhSachSanPhamBanChayQuanTri();
 				request.setAttribute("listSPbanchayQuanTri", listSPbanchayQuanTri);
-				
-//				Danh sách sản phẩm tiêu thụ nhiều
 				
 				RequestDispatcher rd = request.getRequestDispatcher("Ad_index.jsp");
 				rd.forward(request, response);

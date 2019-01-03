@@ -8,7 +8,6 @@ public class HoaDonNhapDAO {
 	static Connection conn;
 	public void themHoaDonNhap(String maHoaDonNhap, String maTaiKhoan, String maNhaCungCap, String ngayNhap) {
 		conn = ConnectDB.getConnection();
-		
 		try {
 			CallableStatement call = conn.prepareCall("{call QuanLyShopQuanAo_ThemHoaDonNhap(?,?,?,?)}");
 			call.setString(1, maHoaDonNhap);
