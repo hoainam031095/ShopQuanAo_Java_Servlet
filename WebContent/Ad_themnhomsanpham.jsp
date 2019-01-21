@@ -1,3 +1,5 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="model.bean.Menu"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -62,6 +64,18 @@
                   <label for="inputChiNhomTietSanPham">Chi tiết nhóm sản phẩm:</label>
                   <textarea class="form-control" name="chiTietNhomSanPham" placeholder="VD: Áo sơ mi bé trai - Phù hợp cho các bé từ 1 đến 7 tuổi thích phong cách lịch lãm của sản phẩm áo sơ mi mang lại." id="inputChiNhomTietSanPham" rows="5" style="resize: none;"></textarea>
                 </div>
+                <div class="form-group"">
+		                  <label for="selectNhomChinh">Nhóm chính:</label>
+		                 <select id="selectNhomChinh" class="form-control select2" name="nhomChinh">
+		                    <% ArrayList<Menu> listMenu = (ArrayList<Menu>)request.getAttribute("listMenu");
+		                    	for(Menu mn : listMenu)
+		                    	{
+		                    %>
+				                    
+				                    <option value="<%=mn.getMaMenu()%>"><%=mn.getTenMenu()%></option>
+				                <%}%>
+		                  </select>
+		                </div>
                 <div class="form-group">
                   <label for="inputOrder">Order:</label>
                   <input type="text" class="form-control" name="orDer" placeholder="VD: 1" id="inputOrder">

@@ -150,8 +150,8 @@
 							<tr>
 								<td class="muc">Hình thức thanh toán:</td>
 								<td>
-									<input class="radio" type="radio" name="hinhthucthanhtoan" value="offline" checked="checked"> Thanh toán khi nhận hàng &nbsp &nbsp &nbsp 
-									<input class="radio" type="radio" name="hinhthucthanhtoan" value="online"> Thanh toán trực tuyến<br></td>
+									<input class="hinhthucthanhtoan" type="radio" name="hinhthucthanhtoan" value="offline" checked="checked"> Thanh toán khi nhận hàng &nbsp &nbsp &nbsp 
+									<input class="hinhthucthanhtoan" type="radio" name="hinhthucthanhtoan" value="online"> Thanh toán trực tuyến<br></td>
 								</tr>
 							<tr>
 								<td class="muc">Phương pháp vận chuyển:</td>
@@ -177,6 +177,7 @@
 						<input type="hidden" value="<%=dienthoainguoinhan%>" name="dienthoainguoinhan">
 						<input type="hidden" value="<%=diachi%>" name="diachi">
 						<input type="hidden" value="<%=maTinhThanh%>" name="maTinhThanh">
+						<input type="text" value="" id = "inputHinhthucthanhtoan" name="hinhthucthanhtoan">
 						
 						<button type="submit" class="btn ty-btn ty-xacnhan">Xác nhận</button>
 						<button  onclick="event.preventDefault(); location.href='NguoiDungChiTietGioHangServlet'" class="btn ty-btn ty-btn__primary">Hủy</button>
@@ -189,8 +190,11 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 		window.onload = function() {
-        	resuftCheckBox();
-		};
+			$('#inputHinhthucthanhtoan').val($('.hinhthucthanhtoan').val());
+		}
+		$('input[type=radio][name=hinhthucthanhtoan]').on('change', function() {
+			$('#inputHinhthucthanhtoan').val($(this).val());
+		});
 	});
 </script>
 <%@include file="Us_footer.jsp"%>

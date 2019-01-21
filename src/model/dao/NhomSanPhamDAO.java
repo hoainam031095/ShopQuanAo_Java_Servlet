@@ -51,15 +51,16 @@ public class NhomSanPhamDAO {
 	}
 
 	public void themNhomSanPham(String maNhomSanPham, String tenNhomSanPham, String chiTietNhomSanPham, String order,
-			String fileName1) {
+			String fileName1, String nhomChinh) {
 		conn = ConnectDB.getConnection();
 		try {
-			CallableStatement call = conn.prepareCall("{call QuanLyShopQuanAo_ThemNhomSanPham(?,?,?,?,?)}");
+			CallableStatement call = conn.prepareCall("{call QuanLyShopQuanAo_ThemNhomSanPham(?,?,?,?,?,?)}");
 			call.setString(1, maNhomSanPham);
 			call.setString(2, tenNhomSanPham);
 			call.setString(3, chiTietNhomSanPham);
 			call.setString(4, order);
 			call.setString(5, fileName1);
+			call.setString(6, nhomChinh);
 			call.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

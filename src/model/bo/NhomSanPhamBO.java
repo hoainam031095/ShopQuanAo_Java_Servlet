@@ -19,8 +19,8 @@ public class NhomSanPhamBO {
 	}
 
 	public void themNhomSanPhamBo(String maNhomSanPham, String tenNhomSanPham, String chiTietNhomSanPham, String order,
-			String fileName1) {
-		dao.themNhomSanPham(maNhomSanPham, tenNhomSanPham, chiTietNhomSanPham,order, fileName1);
+			String fileName1, String nhomChinh) {
+		dao.themNhomSanPham(maNhomSanPham, tenNhomSanPham, chiTietNhomSanPham,order, fileName1, nhomChinh);
 	}
 
 	public void xoaNhomSanPhamTheoMa(String maNhomSP) {

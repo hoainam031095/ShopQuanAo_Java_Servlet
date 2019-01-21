@@ -14,7 +14,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
+import model.bean.Menu;
 import model.bean.NhomSanPham;
+import model.bo.MenuBO;
 import model.bo.NhomSanPhamBO;
 import model.dao.UpLoadFileDAO;
 
@@ -75,12 +77,13 @@ if ("submit".equals(request.getParameter("subMit"))) {
 				String maNhomSanPham = "NH" + String.format("%05d", bo.sinhma()+1);
 				String tenNhomSanPham = request.getParameter("tenNhomSanPham");
 				String chiTietNhomSanPham = request.getParameter("chiTietNhomSanPham");
+				String nhomChinh = request.getParameter("nhomChinh");
 				String order = request.getParameter("orDer");
 				
 				Part filePart = request.getPart("fileName"); // Retrieves <input type="file" name="fileName">
 			    String fileName1 = Paths.get(filePart.getSubmittedFileName()).getFileName().toString(); // MSIE fix.
 			    
-				bo.themNhomSanPhamBo(maNhomSanPham, tenNhomSanPham, chiTietNhomSanPham,order, fileName1);
+				bo.themNhomSanPhamBo(maNhomSanPham, tenNhomSanPham, chiTietNhomSanPham,order, fileName1, nhomChinh);
 				
 				ArrayList<NhomSanPham> listNSP = bo.layDanhSachNhomSanPham();
 				request.setAttribute("thongbao", "Thêm thành công nhóm sản phẩm");
@@ -88,7 +91,11 @@ if ("submit".equals(request.getParameter("subMit"))) {
 				RequestDispatcher rd = request.getRequestDispatcher("Ad_danhsachnhomsanpham.jsp");
 				rd.forward(request, response);
 		} else {
-			response.sendRedirect("Ad_themnhomsanpham.jsp");
+			MenuBO mnBo = new MenuBO();
+			ArrayList<Menu> listMenu = mnBo.layDanhSachMenu();
+			request.setAttribute("listMenu", listMenu);
+			RequestDispatcher rd = request.getRequestDispatcher("Ad_themnhomsanpham.jsp");
+			rd.forward(request, response);
 		}
 		
 	}
