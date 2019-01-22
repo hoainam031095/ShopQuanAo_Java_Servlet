@@ -2,8 +2,11 @@ package model.dao;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 
 //import jdk.internal.dynalink.beans.StaticClass;
 import model.bean.TaiKhoan;
@@ -11,6 +14,7 @@ import model.bean.TaiKhoan;
 public class TaiKhoanDAO {
 	static Connection conn;
 	static ResultSet rs;
+	static PreparedStatement prsttm;
 	
 	public TaiKhoan layNguoiDung(String userName, String passWord) {
 		conn = ConnectDB.getConnection();
@@ -70,6 +74,41 @@ public class TaiKhoanDAO {
 			}
 		}
 		
+	}
+
+	public ArrayList<TaiKhoan> layDanhSachTaiKhoan() {
+		// TODO Auto-generated method stub
+		conn = ConnectDB.getConnection();
+		ArrayList<TaiKhoan> listTk = new ArrayList<>();
+		try {
+			String sql = "select * from tblTaiKhoan";
+			prsttm = conn.prepareStatement(sql);
+			rs = prsttm.executeQuery();
+			while(rs.next())
+			{
+				TaiKhoan tk = new TaiKhoan();
+				tk.setMaTaikhoan(rs.getString("MaTK"));
+				tk.setTenTaiKhoan(rs.getString("TaiKhoan"));
+				tk.setQuyen(rs.getInt("Rules"));
+				tk.setHoTen(rs.getString("Ten"));
+				tk.setEmail(rs.getString("Email"));
+				listTk.add(tk);
+			}
+			return listTk;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		return listTk;
 	}
 
 }

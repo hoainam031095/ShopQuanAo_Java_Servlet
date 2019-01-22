@@ -339,4 +339,24 @@
     <servlet-name>QuanTriNhapThemSanPhamServlet</servlet-name>
     <url-pattern>/QuanTriNhapThemSanPhamServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>QuanTriDanhSachHoaDonBanServlet</display-name>
+    <servlet-name>QuanTriDanhSachHoaDonBanServlet</servlet-name>
+    <servlet-class>controller.QuanTriDanhSachHoaDonBanServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>QuanTriDanhSachHoaDonBanServlet</servlet-name>
+    <url-pattern>/QuanTriDanhSachHoaDonBanServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DanhSachTaiKhoanServlet</display-name>
+    <servlet-name>DanhSachTaiKhoanServlet</servlet-name>
+    <servlet-class>controller.DanhSachTaiKhoanServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DanhSachTaiKhoanServlet</servlet-name>
+    <url-pattern>/DanhSachTaiKhoanServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

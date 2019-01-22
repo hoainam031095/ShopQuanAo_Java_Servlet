@@ -177,7 +177,7 @@
 						<input type="hidden" value="<%=dienthoainguoinhan%>" name="dienthoainguoinhan">
 						<input type="hidden" value="<%=diachi%>" name="diachi">
 						<input type="hidden" value="<%=maTinhThanh%>" name="maTinhThanh">
-						<input type="text" value="" id = "inputHinhthucthanhtoan" name="hinhthucthanhtoan">
+						<input type="hidden" value="" id = "inputHinhthucthanhtoan" name="hinhthucthanhtoan">
 						
 						<button type="submit" class="btn ty-btn ty-xacnhan">Xác nhận</button>
 						<button  onclick="event.preventDefault(); location.href='NguoiDungChiTietGioHangServlet'" class="btn ty-btn ty-btn__primary">Hủy</button>

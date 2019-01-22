@@ -6,12 +6,16 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import Common.SplitDate;
 import model.bean.ChiTietHoaDonBan;
+import model.bean.ChiTietHoaDonNhap;
+import model.bean.HoaDonBan;
 
 public class ChiTietHoaDonDAO {
 	static Connection conn;
 	static ResultSet rs;
 	ArrayList<ChiTietHoaDonBan> listCTHDban;
+	ArrayList<HoaDonBan> listHDB;
 	public ArrayList<ChiTietHoaDonBan> layThongTinHoaDonBanTheoMa(String maHD) {
 		// TODO Auto-generated method stub
 		conn = ConnectDB.getConnection();
@@ -135,6 +139,37 @@ public class ChiTietHoaDonDAO {
 			}
 		}
 		return soLuongBanDuocTheoNhom;
+	}
+	public ArrayList<HoaDonBan> layDanhSachChiTietHoaDonBan() {
+		// TODO Auto-generated method stub
+		listHDB = new ArrayList<>();
+		conn = ConnectDB.getConnection();
+		CallableStatement call;
+		try {
+			call = conn.prepareCall("{call QuanLyShopQuanAo_LayDanhSachHoaDonBan}");
+			rs = call.executeQuery();
+			while(rs.next()) {
+				HoaDonBan hdb = new HoaDonBan();
+				hdb.setMaHD(rs.getString("MaHD"));
+				hdb.setTenNguoiNhan(rs.getString("TenNguoiNhan"));
+				hdb.setSoDienThoai(rs.getString("SDT"));
+				hdb.setDiaChi(rs.getString("DiaChi"));
+				hdb.setNgayBan(rs.getString("NgayBan"));
+				listHDB.add(hdb);
+			}
+			return listHDB;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return listHDB;
 	}
 
 }

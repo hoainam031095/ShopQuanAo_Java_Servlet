@@ -1,5 +1,7 @@
 package model.bo;
 
+import java.util.ArrayList;
+
 import model.bean.TaiKhoan;
 import model.dao.ConnectDB;
 import model.dao.TaiKhoanDAO;
@@ -17,6 +19,10 @@ public class TaiKhoanBO {
 	public void themTaiKhoan(String maTaiKhoan, String tenHienThi, String tenTaiKhoan, String matKhau,int rule, String email) {
 		dao.themTaiKhoan(maTaiKhoan, tenHienThi, tenTaiKhoan,matKhau,rule,email);
 		
+	}
+	public ArrayList<TaiKhoan> layDanhSachTaiKhoan() {
+		// TODO Auto-generated method stub
+		return dao.layDanhSachTaiKhoan();
 	}
 	
 }

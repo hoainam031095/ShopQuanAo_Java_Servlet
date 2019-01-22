@@ -1,4 +1,6 @@
-<%@page import="model.bean.ChiTietHoaDonNhap"%>
+
+<%@page import="model.bean.HoaDonBan"%>
+<%@page import="model.bean.ChiTietHoaDonBan"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -38,7 +40,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Danh sách hóa đơn nhập hàng
+        Danh sách hóa đơn mua hàng
       </h1>
     </section>
 
@@ -46,9 +48,6 @@
     <section class="content">
       <div class="row">
         <div class="col-xs-12">
-          <div class="row-header">
-            <button class="btn btn-primary" style="width: 90px;">Thêm mới</button>
-          </div>
           <div class="box">
             <!-- /.box-header -->
             <div class="box-body">
@@ -57,31 +56,27 @@
                   <tr>
                     <th>STT</th>
                     <th>ID</th>
-                    <th>Người nhập</th>
-                    <th>Nhà cung cấp</th>
-                    <th>Ngày nhập</th>
-                    <th>Sản phẩm</th>
-                    <th>Số lượng</th>
-                    <th>Đơn giá</th>
+                    <th>Người nhận</th>
+                    <th>Số điện thoại</th>
+                    <th>Địa chỉ</th>
+                    <th>Ngày bán</th>
                     <th></th>
                   </tr>
                 </thead>
                 <tbody>
-                <% ArrayList<ChiTietHoaDonNhap> listCTHDN = (ArrayList<ChiTietHoaDonNhap>)request.getAttribute("listCTHDN");
+                <% ArrayList<HoaDonBan> listHDB = (ArrayList<HoaDonBan>)request.getAttribute("listHDB");
                 int i = 1;
-                for(ChiTietHoaDonNhap cthdn : listCTHDN){%>
+                for(HoaDonBan hdb : listHDB){%>
                   <tr>
                     <td><%=i%></td>
-                    <td class="col-md-1 col-sm-1"><a href="#"><%=cthdn.getMaHoaDon()%></a></td>
-                    <td class = "col-md-2 col-sm-2" ><%=cthdn.getTenTaiKhoan()%></td>
-                    <td class = "col-md-2 col-sm-2" ><%=cthdn.getTenNhaCungCap()%></td>
-                    <td class = "col-md-2 col-sm-2" ><%=cthdn.getNgayNhap()%></td>
-                    <td class="col-md-3 col-sm-3"><%=cthdn.getTenSanPham()%></td>
-                    <td class=""><%=cthdn.getSoLuong() %></td>
-                    <td class="col-md-1 col-sm-1"><%=cthdn.getDonGia() %>$</td>
+                    <td class="col-md-1 col-sm-1"><a href="NguoiDungChiTietHoaDonBanServlet?maHD=<%=hdb.getMaHD()%>"><%=hdb.getMaHD()%></a></td>
+                    <td class = "col-md-2 col-sm-2" ><%=hdb.getTenNguoiNhan()%></td>
+                    <td class = "col-md-2 col-sm-2" ><%=hdb.getSoDienThoai()%></td>
+                    <td class = "col-md-4 col-sm-4" ><%=hdb.getDiaChi()%></td>
+                    <td class="col-md-2 col-sm-2"><%=hdb.getNgayBan()%></td>
                     <td class="col-md-1 col-sm-1" style="text-align: center;">
-                      <a href="ChinhSuaDanhSachChiTietHoaDonServlet?maHD=<%=cthdn.getMaHoaDon()%>" style="padding: 0px 5px; font-size: 16px;"> <i class="fa fa-pencil"></i></a>
-                      <a href="XoaChiTietHoaDonServlet?maHD=<%=cthdn.getMaHoaDon()%>" style="padding: 0px 5px; font-size: 17px; color: red;"><i class="fa fa-trash-o"></i></a>
+                      <a href="ChinhSuaDanhSachChiTietHoaDonServlet?maHD=<%=hdb.getMaHD()%>" style="padding: 0px 5px; font-size: 16px;"> <i class="fa fa-pencil"></i></a>
+                      <a href="XoaChiTietHoaDonServlet?maHD=<%=hdb.getMaHD()%>" style="padding: 0px 5px; font-size: 17px; color: red;"><i class="fa fa-trash-o"></i></a>
                     </td>
                   </tr>
                   <% i++;}%>

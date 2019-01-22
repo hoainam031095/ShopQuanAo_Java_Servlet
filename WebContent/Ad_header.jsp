@@ -222,7 +222,7 @@
           </ul>
         </li>
         <li>
-          <a href="pages/calendar.html">
+          <a href="QuanTriDanhSachHoaDonBanServlet">
             <i class="fa fa-files-o"></i><span>Đơn đặt hàng</span>
           </a>
         </li>
@@ -259,7 +259,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="pages/tables/simple.html"><i class="fa fa-plus"></i> Thêm tài khoản</a></li>
-            <li><a href="pages/tables/simple.html"><i class="fa fa-address-book"></i> Danh sách</a></li>
+            <li><a href="DanhSachTaiKhoanServlet"><i class="fa fa-address-book"></i> Danh sách</a></li>
           </ul>
         </li>
         <%}else{ %>

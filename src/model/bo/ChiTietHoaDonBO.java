@@ -3,6 +3,7 @@ package model.bo;
 import java.util.ArrayList;
 
 import model.bean.ChiTietHoaDonBan;
+import model.bean.HoaDonBan;
 import model.dao.ChiTietHoaDonDAO;
 
 public class ChiTietHoaDonBO {
@@ -22,6 +23,11 @@ public class ChiTietHoaDonBO {
 	}
 	public String soLuongBanCuaNhomSanPhamTheoMa(String maNhomSanPham) {
 		return cthdDao.soLuongBanCuaNhomSanPhamTheoMa(maNhomSanPham);
+	}
+
+	public ArrayList<HoaDonBan> layDanhSachChiTietHoaDonBan() {
+		// TODO Auto-generated method stub
+		return cthdDao.layDanhSachChiTietHoaDonBan();
 	}
 	
 }
